@@ -6,6 +6,9 @@ on:
     paths:
       - 'docs/**'
 jobs:
+  job-name:
+    permissions:
+      contents: write
   build:
     runs-on: ubuntu-20.04
     steps:
