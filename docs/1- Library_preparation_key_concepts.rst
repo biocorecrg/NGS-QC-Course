@@ -1,7 +1,7 @@
-.. _nextflow_1-page:
+.. _Library_preparation-page:
 
 *******************
-1 Nextflow
+1 Library preparation
 *******************
 
 Reproducibility in bioinformatics and computational biology 
