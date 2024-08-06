@@ -5,7 +5,7 @@ NGS Quality Control
 *******************
 
 
-`GitHub repository <https://github.com/biocorecrg/nextflow-course-2024-alba>`_
+`GitHub repository <https://github.com/FabianAndradeLozano/NGS-QC-Course>`_
 
 Contents:
 
