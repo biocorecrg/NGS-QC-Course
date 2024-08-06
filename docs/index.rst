@@ -1,7 +1,7 @@
 .. _home-page:
 
 *******************
-Reproducible research and data analysis using Containers & Nextflow 2024 - ALBA
+NGS Quality Control 
 *******************
 
 
@@ -13,8 +13,4 @@ Contents:
    :maxdepth: 1
 
    about
-   nextflow_1
-   nextflow_2
-   containers
-   nextflow_3
-   nextflow_4
+   1- Library_preparation_key_concepts
