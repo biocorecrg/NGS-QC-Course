@@ -22,7 +22,9 @@
     <script src="_static/js/theme.js"></script>
     <link rel="author" title="About these documents" href="about.html" />
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="2 Main Sequencing Technologies" href="2-%20Sequencing_technologies.html" />
+    <link rel="prev" title="About the course" href="about.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -44,8 +46,15 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul>
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="about.html">About the course</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">1 Library preparation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#main-causes-of-poor-quality-data">Main Causes of poor quality data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id1">Library preparation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#library-preparation-bias">Library preparation bias</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="2-%20Sequencing_technologies.html">2 Main Sequencing Technologies</a></li>
 </ul>
 
         </div>
@@ -80,8 +89,8 @@
 Depending on the sample nature and the nucleic acid (RNA or DNA) the extraction proceess may vary,then an appropiate protocol to each situation must be chosen.
 Thus, a rigorous quality control of the nucleic acid quantification extraction must to be performed, to asses the <strong>quantity, purity and integrity</strong>. DNA Typically could be measured whether
 UV spectrocopy (Nanodrop) or electrophoresis (Agilent TapeStation), RNA concentration is typically measured by Qubit fluorometer (ThermoFisherScientific).</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
 <p><strong>RNA is more critical</strong>, sample contamination is very common.</p>
 </div>
 </section>
@@ -90,6 +99,7 @@ UV spectrocopy (Nanodrop) or electrophoresis (Agilent TapeStation), RNA concentr
 <p>Selecting  a suitable NGS library according to the type of sample, and the downstream analysis is essential to gurantee the quality of the data and get de desired information for our research.
 In a nutshell, library is defined as a collection of nucleic acid (RNA or DNA) fragments of a defined lenght distribution with adapters attached.</p>
 <a class="reference internal image-reference" href="_images/library_prep_explanation_Van_Djik_2014.jpg"><img alt="_images/library_prep_explanation_Van_Djik_2014.jpg" src="_images/library_prep_explanation_Van_Djik_2014.jpg" style="width: 400px;" /></a>
+<p><em>source: https://doi.org/10.1016/j.yexcr.2014.01.008</em></p>
 <p>Main steps of a Library Preparation Kit:</p>
 <ul class="simple">
 <li><p><strong>Fragmentation</strong></p></li>
@@ -122,22 +132,34 @@ and more readily enable specific applications (like Whole Genome Sequencing and 
 </ul>
 <p>Check if DNA mmets the quantity and quality requirements od the sequencing instrument. Assesss the quantity and size distribution of the library.</p>
 </section>
-<section id="rna-library-preparation">
-<h2>RNA Library preparation<a class="headerlink" href="#rna-library-preparation" title="Link to this heading"></a></h2>
+<section id="library-preparation-bias">
+<h2>Library preparation bias<a class="headerlink" href="#library-preparation-bias" title="Link to this heading"></a></h2>
+<p>..tabs:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span><span class="n">group</span><span class="o">-</span><span class="n">tab</span><span class="p">::</span> <span class="n">DNA</span> <span class="n">library</span> <span class="n">bias</span>
+
+  <span class="n">DNA</span> <span class="n">Library</span> <span class="n">preparation</span> <span class="n">bias</span>
+  <span class="o">----------------------------</span>
+
+<span class="o">..</span><span class="n">group</span><span class="o">-</span><span class="n">tab</span><span class="p">::</span> <span class="n">RNA</span> <span class="n">library</span> <span class="n">bias</span>
+
+  <span class="n">RNA</span> <span class="n">Library</span> <span class="n">preparation</span> <span class="n">bias</span>
+  <span class="o">----------------------------</span>
+</pre></div>
+</div>
 <p>Due that RNA is converted to cDNA, PCR-amplified libraries are necessary for many sequencing instruments.</p>
 <p>RNA-seq applications requires the removal of the ribosomal RNA (rRNA), comprising up to 90% of the total RNA. rRNA can be isolated and removed by hybridisation
 capture using rRNA-specific probes, then isolated from RNA sample using magnetic bead separation.</p>
 <p>For especific isolation of mRNA transcripts, in addition to rRNA depletion, poly(A) must be done for selecting the RNAs containing a polyadenilated tail using oligo primers.</p>
-</section>
-<section id="library-preparation-factors-to-consider">
-<h2>Library preparation factors to consider<a class="headerlink" href="#library-preparation-factors-to-consider" title="Link to this heading"></a></h2>
 </section>
 </section>
 
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="about.html" class="btn btn-neutral float-left" title="About the course" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="2-%20Sequencing_technologies.html" class="btn btn-neutral float-right" title="2 Main Sequencing Technologies" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
   <hr/>
 

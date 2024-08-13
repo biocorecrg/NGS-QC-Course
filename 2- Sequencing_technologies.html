@@ -22,7 +22,8 @@
     <script src="_static/js/theme.js"></script>
     <link rel="author" title="About these documents" href="about.html" />
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="1 Library preparation" href="1-%20Library_preparation.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -44,8 +45,18 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul>
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="about.html">About the course</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1-%20Library_preparation.html">1 Library preparation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">2 Main Sequencing Technologies</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#short-reads-sequencing-illumina">Short Reads sequencing (Illumina)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#single-end">Single end</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#paired-end">Paired end</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#long-read-sequencing-nanopore">Long read sequencing (Nanopore)</a></li>
+</ul>
+</li>
 </ul>
 
         </div>
@@ -74,12 +85,60 @@
              
   <section id="main-sequencing-technologies">
 <span id="library-preparation-page"></span><h1>2 Main Sequencing Technologies<a class="headerlink" href="#main-sequencing-technologies" title="Link to this heading"></a></h1>
+<section id="short-reads-sequencing-illumina">
+<h2>Short Reads sequencing (Illumina)<a class="headerlink" href="#short-reads-sequencing-illumina" title="Link to this heading"></a></h2>
+<p>It consist in The  polymerase-mediated Sequencing by synthesis (SBS), this works by coupling the four DNA bases to fluorescent markers alongside a terminator chemical group that pauses DNA synthesis.
+While DNA is being synthesized, each fluorescent marker is optically verified before the tag and terminator are removed, and the next step in the sequence is recorded.</p>
+<ol class="arabic simple">
+<li><p>Cluster generation</p></li>
+</ol>
+<p>Adapter attached to the DNA fragment is used to hybridisation to the flowcell, subsequentlty PCR amplification (bridge amplification) generates a cluster of the same sequence fragment to amplify the signal
+when the nucleotide base is synthesized, thus obtaining a multiple cluster on a Flow Cell.</p>
+<a class="reference internal image-reference" href="_images/illumina_Lu_et_al_2016.png"><img alt="_images/illumina_Lu_et_al_2016.png" src="_images/illumina_Lu_et_al_2016.png" style="width: 400px;" /></a>
+<p><em>Source: https://www.researchgate.net/publication/357946568_New_approaches_and_concepts_to_study_complex_microbial_communities</em></p>
+<ol class="arabic simple">
+<li><p>Sequencing</p></li>
+</ol>
+<p>On each cycle is incorporated one nucleotide to the template, it correspond to the read length (1’’ cycles equal to 100 bp read length).
+After imaging to determine which of the four colours was incorporated in each cluster of the flow cell.</p>
+<section id="single-end">
+<h3>Single end<a class="headerlink" href="#single-end" title="Link to this heading"></a></h3>
+<p>Correspond to the basis of SBS, where the nucleotides added to the template sequence is read from one end of the fragment.
+It’s more simple and effcient, due to reduce the the number of stemps in the library preparation.</p>
+<p>nevertheless, the quality of nucleotides decreases as the sequencing process progresses.</p>
+</section>
+<section id="paired-end">
+<h3>Paired end<a class="headerlink" href="#paired-end" title="Link to this heading"></a></h3>
+<p><em>source: https://systemsbiology.columbia.edu/genome-sequencing-defining-your-experiment#:~:text=Single%2Dend%20vs.&amp;text=In%20single%2Dend%20reading%2C%20the,opposite%20end%20of%20the%20fragment.</em></p>
+<p>During library preparation  are incorporated sequencing primers binding site at both ends of the DNA fragments.
+This allows to reading at one read, when it finiches this direction at the specified read lenght, then starts another round od reading from the opposite end of the fragemnt.
+It improves:</p>
+<ul class="simple">
+<li><p>The confidence of the sequence read</p></li>
+<li><p>The ability to identify the relative positions of various reads in the genome (much more efficient in resolve rearrangements such as insertions, deletions or inversions)</p></li>
+<li><p>Can improve the assembly of repetitive regions.</p></li>
+<li><p>On the ohter hand is more expensive and time-consuming (respect single end)</p></li>
+</ul>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<blockquote>
+<div><p>See the _Illumina_sequencing_by_synthesis_workflow video by Illumina to visualize the concepts of SBS.</p>
+</div></blockquote>
+</div>
+<p>For more information</p>
+</section>
+</section>
+<section id="long-read-sequencing-nanopore">
+<h2>Long read sequencing (Nanopore)<a class="headerlink" href="#long-read-sequencing-nanopore" title="Link to this heading"></a></h2>
+</section>
 </section>
 
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="1-%20Library_preparation.html" class="btn btn-neutral float-left" title="1 Library preparation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
 
   <hr/>
 
