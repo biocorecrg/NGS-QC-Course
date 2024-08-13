@@ -13,4 +13,5 @@ Contents:
    :maxdepth: 1
 
    about
-   1- Library_preparation_key_concepts
+   1- Library_preparation
+   2- Sequencing_technologies
