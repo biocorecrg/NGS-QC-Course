@@ -12,7 +12,7 @@ Depending on the sample nature and the nucleic acid (RNA or DNA) the extraction 
 Thus, a rigorous quality control of the nucleic acid quantification extraction must to be performed, to asses the **quantity, purity and integrity**. DNA Typically could be measured whether
 UV spectrocopy (Nanodrop) or electrophoresis (Agilent TapeStation), RNA concentration is typically measured by Qubit fluorometer (ThermoFisherScientific).
 
-.. note::
+.. danger::
 	**RNA is more critical**, sample contamination is very common. 
 
 
@@ -25,6 +25,7 @@ In a nutshell, library is defined as a collection of nucleic acid (RNA or DNA) f
 .. image:: images/library_prep_explanation_Van_Djik_2014.jpg
   :width: 400
 
+*source: https://doi.org/10.1016/j.yexcr.2014.01.008*
 
 Main steps of a Library Preparation Kit:
 
@@ -58,9 +59,20 @@ removal of unwanted products to leave only the nucleic acid fragments. Often is 
 
 Check if DNA mmets the quantity and quality requirements od the sequencing instrument. Assesss the quantity and size distribution of the library. 
 
-
-RNA Library preparation 
+Library preparation bias 
 ========================
+
+..tabs::
+
+	..group-tab:: DNA library bias
+
+	  DNA Library preparation bias 
+	  ----------------------------
+
+	..group-tab:: RNA library bias
+
+	  RNA Library preparation bias 
+	  ----------------------------
 
 Due that RNA is converted to cDNA, PCR-amplified libraries are necessary for many sequencing instruments.
 
@@ -70,5 +82,7 @@ capture using rRNA-specific probes, then isolated from RNA sample using magnetic
 For especific isolation of mRNA transcripts, in addition to rRNA depletion, poly(A) must be done for selecting the RNAs containing a polyadenilated tail using oligo primers.
 
 
-Library preparation factors to consider
-========================
+
+
+
+
