@@ -8,7 +8,6 @@ About the course
    :toctree: generated
 
 
-This slow-paced hands-on internal course is designed for absolute beginners who want to start using  `Nextflow DSL2 <https://www.nextflow.io>`_ to achieve reproducibility of the data analysis.
 
 
 .. |luca| image:: images/lcozzuto.jpg
@@ -47,25 +46,6 @@ Dates, time, location
 Program
 ------------------------
   
-*Day 1: Understand and run a basic Nexflow pipeline*
-
-
-
-*Day 1: Write, modify, and run a complex pipeline*
-
-
-
-*Day 2: Linux containers*
-
-
-
-*Day 3: Run a Nextflow pipeline in different environments*
-
-
-
-*Day 4: Nextflow modules and Tower*
-
-
 
 
 .. _home-page-outline:
@@ -73,25 +53,26 @@ Program
 Outline
 ============
 
-This NGS Quality Control course will train participants to run FASTQC on short reads obtained with Illumina and interpret the quality control parameters offered by this tool. 
+This NGS Quality Control (QC) course will train participants to run FASTQC on short reads obtained with Illumina and interpret the quality control parameters offered by this tool. 
 
 .. _home-page-learning:
 
 Learning objectives
 ============
 
-* Execute/Run FASTQC on short reads obtained by illumina sequencing. 
-* Interpret the Quality Control Parameters offered by FASTQC
-* Understand the sequencing technology of Illumina. 
-* Main factors for choose an appropiate library preparation kit
-* Description of the main tools for low quality reads and adapter removal.
+* Know the main steps of a library preparation in DNA-seq and RNA-seq, the bias introduced in each of this and solutions to avoid them 
+* Learn how the main sequencing technologies works (Illumina for short reads and Nanopore for long reads). 
+* Execute/Run the main quality control tools for raw data (FASTQC/NanoPlot and FASQ-Screen) obtained for short and long reads.
+* Understand the FASTQ format and interpret the Quality Control report offered by theese tools.
+* Aggregate the QC reports of different tools and samples with MULTIQC.
+* Execute and learn about the preprocessing tools for adapter and low quality reads removal (TRIMMOMATIC, Cutadapter, Sickle, Fastp).
 
 .. _home-page-prereq:
 
 Prerequisite / technical requirements
 ============
 
-Being comfortable working with the CLI (command-line interface) in a Linux-based environment.
+Being comfortable working with the CLI (command-line interface) in a Linux-based environment (Introductory courses to CLI may be recommended)git .
 
 
 
