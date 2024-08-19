@@ -41,7 +41,7 @@ Paired end
 *source: https://systemsbiology.columbia.edu/genome-sequencing-defining-your-experiment#:~:text=Single%2Dend%20vs.&text=In%20single%2Dend%20reading%2C%20the,opposite%20end%20of%20the%20fragment.*
 
 During library preparation  are incorporated sequencing primers binding site at both ends of the DNA fragments. 
-This allows to reading at one read, when it finiches this direction at the specified read lenght, then starts another round od reading from the opposite end of the fragemnt. 
+This allows to reading at one read, when it finiches this direction at the specified read lenght, then starts another round od reading from the opposite end of the fragment. 
 It improves:
 
 - The confidence of the sequence read
@@ -53,7 +53,7 @@ It improves:
 .. seealso::
 	.. _Illumina_sequencing_by_synthesis_workflow: https://www.youtube.com/watch?v=fCd6B5HRaZ8
 	   
-	   See the _Illumina_sequencing_by_synthesis_workflow video by Illumina to visualize the concepts of SBS. 
+	   See the Illumina_sequencing_by_synthesis_workflow_ video by Illumina to visualize the concepts of SBS. 
 
 
 For more information 
