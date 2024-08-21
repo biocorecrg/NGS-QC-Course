@@ -25,15 +25,15 @@ In a nutshell, library is defined as a collection of nucleic acid (RNA or DNA) f
 .. image:: images/library_prep_explanation_Van_Djik_2014.jpg
   :width: 400
   :align: center
+  :alt: *source: https://doi.org/10.1016/j.yexcr.2014.01.008*
 
-*source: https://doi.org/10.1016/j.yexcr.2014.01.008*
 
 
 .. image:: images/protocol_RNA-seq_library_bias_vanDjik_etal_2014.png
   :width: 400
   :align: center
+  :alt: *source: https://doi.org/10.1016/j.yexcr.2014.01.008*
 
-*source: https://doi.org/10.1016/j.yexcr.2014.01.008*
 
 
 Main steps of a Library Preparation Kit:
@@ -73,8 +73,8 @@ Check if DNA mets the quantity and quality requirements of the sequencing instru
 	RNA library preparation is more complex due to the risk of degradation and requires additional steps respect DNA:
 
 	- Due that RNA is converted to cDNA, PCR-amplified libraries are necessary for many sequencing instruments.
-	- Most of the RNA-seq applications requires the removal of the ribosomal RNA (rRNA), comprising up to 90% of the total RNA. 
-    - For especific isolation of mRNA transcripts, in addition to rRNA depletion, poly(A) must be done for selecting the RNAs containing a polyadenilated tail using oligo primers.
+	- Most of the RNA-seq applications requires the removal of the ribosomal RNA (rRNA), comprising up to 90% of the total RNA.
+	- For especific isolation of mRNA transcripts, in addition to rRNA depletion, poly(A) must be done for selecting the RNAs containing a polyadenilated tail using oligo primers.
 	
 
 Library preparation bias 
@@ -83,74 +83,72 @@ Library preparation bias
 Among the different library preparation steps presented earlier, several biases can be introduced during the process. 
 Here are presented the main biases introduced for either DNA or RNA, in each library preparation step and possible solutions to avoid them.
 
-.. tabs::
+DNA library bias
+----------------
 
-	.. tab:: DNA library bias
+DNA Library preparation bias 
 
-	  DNA Library preparation bias 
+*Source: http://dx.doi.org/10.1016/j.yexcr.2014.01.008*
 
-	  *Source: http://dx.doi.org/10.1016/j.yexcr.2014.01.008*
+Here are presented the the different steps of the DNA library preparation that have been implicated in bias introduction:
 
-	  Here are presented the the different steps of the DNA library preparation that have been implicated in bias introduction:
+- Fragmentation
+Chromatin sonication for ChIP-seq has been shown to be non-random, with euchromatin being sheared more efficiently than heterochromatin. 
+.. tip::
+To solve this it has been developed the double-fragmentation ChIP-seq protocol.
 
-	  #. Fragmentation
-	  Chromatin sonication for ChIP-seq has been shown to be non-random, with euchromatin being sheared more efficiently than heterochromatin. 
-	  .. tip::
-	    To solve this it has been developed the double-fragmentation ChIP-seq protocol.
+- Size Selection
+Agarose gel slices by heating to 50 ºC in chaotropic salt buffer decreased the representation of AT-rich sequences.
+.. tip:: 
+Simple solution to this problem is to melt the gel slices in the supplied buffer at room temperature (18–22 ºC), considerably reducing GC bias.
 
-	  #. Size Selection
-	  Agarose gel slices by heating to 50 ºC in chaotropic salt buffer decreased the representation of AT-rich sequences.
-	  .. tip:: 
-	    Simple solution to this problem is to melt the gel slices in the supplied buffer at room temperature (18–22 ºC), considerably reducing GC bias.
+- PCR
+Introduce bias in sample composition, due to the fact that not all fragments in the mixture are amplified with the same efficiency. 
+GC-neutral fragments are amplified more efficiently than GC-rich or AT-rich fragments, and as a result fragments with high AT- or GC content may become underrepresented or are completely lost during library preparation
+.. tip::
+- Ligate adapters that contain all necessary elements for bridge amplification on Illumina flowcells are preferred, eliminating the need for PCR to add these sequences afterwards. Nevertheless, requires relatively large quantities (41 mg) of input material.
+- In the extreme case of small input amount, the single cell,multiple displacement amplification (MDA) may be the preferred amplification method. MDA is an extremely powerful amplification method, allowing microgram quantities of DNA to be obtained from femtograms of starting material. For this reason, MDA has become the method of choice for whole genome amplification (WGA) from single cells
+- PCR additives have also been reported to reduce bias, such as betaine or tetramethylammonium chloride (TMAC) may help to further improve coverage of extremely GC-rich or AT-rich regions.
+- The best overall performing polymerase appears to be Kapa HiFi.
 
-	  #. PCR
-	  Introduce bias in sample composition, due to the fact that not all fragments in the mixture are amplified with the same efficiency. 
-	  GC-neutral fragments are amplified more efficiently than GC-rich or AT-rich fragments, and as a result fragments with high AT- or GC content may become underrepresented or are completely lost during library preparation
-	  .. tip::
-	    - Ligate adapters that contain all necessary elements for bridge amplification on Illumina flowcells are preferred, eliminating the need for PCR to add these sequences afterwards. Nevertheless, requires relatively large quantities (41 mg) of input material.
-		- In the extreme case of small input amount, the single cell,multiple displacement amplification (MDA) may be the preferred amplification method. MDA is an extremely powerful amplification method, allowing microgram quantities of DNA to be obtained from femtograms of starting material. For this reason, MDA has become the method of choice for whole genome amplification (WGA) from single cells
-	    - PCR additives have also been reported to reduce bias, such as betaine or tetramethylammonium chloride (TMAC) may help to further improve coverage of extremely GC-rich or AT-rich regions.
-	    - The best overall performing polymerase appears to be Kapa HiFi.
-
-	  .. seealso::
-	    For more information see the publication `Library preparation methods for next generation sequencing Tone down the bias <http://dx.doi.org/10.1016/j.yexcr.2014.01.008>`_.
+.. seealso::
+For more information see the publication `Library preparation methods for next generation sequencing Tone down the bias <http://dx.doi.org/10.1016/j.yexcr.2014.01.008>`_.
 	   
 	         
+RNA library bias
+----------------
 
+RNA Library preparation bias 
+*Source: https://doi.org/10.1155/2021/6647597*
 
-	.. tab:: RNA library bias
+On this field are presented the main source of bias in RNA-seq, and the solutions that would be implemented to reduce it. 
 
-	  RNA Library preparation bias 
-	  *Source: https://doi.org/10.1155/2021/6647597*
+- **Sample Preservation and Isolation**
 
-	  On this field are presented the main source of bias in RNA-seq, and the solutions that would be implemented to reduce it. 
+1. Degradation of RNA: Minimizing the sample processing and freezing and thawing cycles, ensures that RNA is preserved as best as possible. 
+#. RNA extraction: Use high concentrations of RNA samples or avoid TRIzol extraction altogether. 
+#. Alien sequence contamination:
+#. Low-quality and/or low-quantity RNA samples: RNase H has been the best method for detecting low-qualityRNA and even could eﬀectively replace the standard RNA-seq method based on oligo (dT). 
+For low-quantity RNA,the SMART and NuGEN approaches had lower duplicationrates and signiﬁcantly decreased the necessary amount ofstarting material compared to other methods.
 
-	  #. **Sample Preservation and Isolation**
+- **Library Construction**
 
-	  	- Degradation of RNA: Minimizing the sample processing and freezing and thawing cycles, ensures that RNA is preserved as best as possible. 
-		- RNA extraction: Use high concentrations of RNA samples or avoid TRIzol extraction altogether. 
-		- Alien sequence contamination:
-		- Low-quality and/or low-quantity RNA samples: RNase H has been the best method for detecting low-qualityRNA and even could eﬀectively replace the standard RNA-seq method based on oligo (dT). 
-		For low-quantity RNA,the SMART and NuGEN approaches had lower duplicationrates and signiﬁcantly decreased the necessary amount ofstarting material compared to other methods.
+1. mRNA enrichment bias: enrich for polyadenylated RNA transcripts with oligo (dT) primers have shown that this method remove all non-poly (A) RNAs, such a reolication-dependant histones and lncRNAs (lacking of polyA),
+or incomplete mRNAs. Targeting rRNA as depletion method will not limit to only mRNA molecules (also is more expensive). subtractive hybridization using rRNA-specific probes as the method that introduced the least bias in relative transcript abundance, In contrast, exonuclease treatment tends to be less efficient in rRNA depletion
+#. RNA fragmentation bias: can introduce lenght biases or errors (propagated to later cycles), Studies have shown that methods that involve non speciﬁc restriction endonucleases indicate less sequence bias and have been shown to perform similarly to the physical methods.
+#. Primer bias: deviation due to primer during PCR amplification could be avoid using the Illumina Genome Analyzer, which perform the reverse transcription directly on the flowcells. authors propose a bioinformatics tool in the formo fare weighing scheme that adjusts for the bias and makes the distribution of the reads more uniform.
+#. Adapter ligation bias: due to substrate preferences of T4 RNA ligases, protocols that  uses a set of randomnucleotide adapters at the ligation boundary evade the capture of miRNAs. As a solution, several groups propose to randomize the 3'end of the 5'adapter and the 5'end of the 3'adapter. The strategy is based on the hypothesis that a population of degenerate adapters would average out the sequencing bias because the slightly different adapter molecules would form stable secondary structures with a more diverse population of RNAsequences		- Reverse transcription bias: reverse transcriptases tend to produce false second strand cDNA throughDNA-dependent DNA polymerase. ActinomycinD, a compound that specifically inhibits DNA-dependent DNAsynthesis, has been proposed as an agent to eliminate antisense artifacts
+#. PCR amplification bias: main source of artifacts and base composition bias in the process of library construction:
+#.Extremely AT/GC-Rich, fragments of GC-neutral can be ampliﬁed more than GC-rich or AT-rich fragments. Through the use of custom adapters, the samples
+	without ampliﬁca-tion and ligation can be hybridized directly with the oligonu-cleotides on the ﬂowcell surface, thus avoiding the biases and duplicates of PCR. 
+	However, the ampliﬁcation-free method requires high sample input, which limits its widely used. The most eﬀective PCR enhancing additives currently used are betaine. 
+	It is an amino acid mimic that acts to balance the diﬀerential T m between AT and GC base pairs and has been eﬀec-tively used to improve the coverage of GC-rich templates
+#. Presence of tetramethylammonium chloride (TMAC). Their result showed that the TMAC can remarkably increase the ampliﬁcation of AT-rich regions in Kapa HiFi in the presence. Additionally, 
+	a number of additives have been reported to play an important role in reducing the bias of PCR ampli-ﬁcation, including small amides such as formamide, small sulfoxides such as dimethyl sulfoxide (DMSO), 
+	or reducingcompounds such as β-mercaptoethanol or dithiothreitol(DTT).
+#. PCR cyle: CR can exponentially amplify DNA/cDNA templates, thus leading to a signiﬁcant increase of ampliﬁcation bias with the number of PCR cycles. Therefore, 
+	it is recommended that PCR be performedusing as few cycle numbers as possible to mitigation bias
 
-	  #. **Library Construction**
-
-	  	- mRNA enrichment bias: enrich for polyadenylated RNA transcripts with oligo (dT) primers have shown that this method remove all non-poly (A) RNAs, such a reolication-dependant histones and lncRNAs (lacking of polyA),
-	      or incomplete mRNAs. Targeting rRNA as depletion method will not limit to only mRNA molecules (also is more expensive). subtractive hybridization using rRNA-specific probes as the method that introduced the least bias in relative transcript abundance, In contrast, exonuclease treatment tends to be less efficient in rRNA depletion
-		- RNA fragmentation bias: can introduce lenght biases or errors (propagated to later cycles), Studies have shown that methods that involve non speciﬁc restriction endonucleases indicate less sequence bias and have been shown to perform similarly to the physical methods.
-		- Primer bias: deviation due to primer during PCR amplification could be avoid using the Illumina Genome Analyzer, which perform the reverse transcription directly on the flowcells. authors propose a bioinformatics tool in the formo fare weighing scheme that adjusts for the bias and makes the distribution of the reads more uniform.
-		- Adapter ligation bias: due to substrate preferences of T4 RNA ligases, protocols that  uses a set of randomnucleotide adapters at the ligation boundary evade the capture of miRNAs. As a solution, several groups propose to randomize the 3'end of the 5'adapter and the 5'end of the 3'adapter. The strategy is based on the hypothesis that a population of degenerate adapters would average out the sequencing bias because the slightly different adapter molecules would form stable secondary structures with a more diverse population of RNAsequences		- Reverse transcription bias: reverse transcriptases tend to produce false second strand cDNA throughDNA-dependent DNA polymerase. ActinomycinD, a compound that specifically inhibits DNA-dependent DNAsynthesis, has been proposed as an agent to eliminate antisense artifacts
-		- PCR amplification bias: main source of artifactsand base composition bias in the process of library construc-tion,
-		Extremely AT/GC-Rich, fragments of GC-neutral can be ampliﬁed more thanGC-rich or AT-rich fragments. Throughthe use of custom adapters, 
-		the samples without ampliﬁca-tion and ligation can be hybridized directly with the oligonu-cleotides on the ﬂowcell surface, thus avoiding the biases andduplicates of PCR. However, 
-		the ampliﬁcation-free methodrequires high sample input, which limits its widely used. The mosteﬀective PCR enhancing additives currently used are betaine[50]. 
-		It is an amino acid mimic that acts to balance the diﬀer-ential T m between AT and GC base pairs and has been eﬀec-tively used to improve the coverage of GC-rich templates
-		presence of tetramethylammonium chloride (TMAC). Theirresult showed that the TMAC can remarkably increase theampliﬁcation of AT-rich regions in Kapa HiFi in the pres-ence. Additionally, 
-		a number of additives have been reportedto play an important role in reducing the bias of PCR ampli-ﬁcation, including small amides such as formamide, smallsulfoxides such as dimethyl sulfoxide (DMSO), 
-		or reducingcompounds such as β-mercaptoethanol or dithiothreitol(DTT) [50].
-		PCR cyle: CR can exponentiallyamplify DNA/cDNA templates, thus leading to a signiﬁcantincrease of ampliﬁcation bias with the number of PCR cycles[51]. Therefore, 
-		it is recommended that PCR be performedusing as few cycle numbers as possible to mitigation bias
-		- Machine failure
 
 
 

@@ -51,7 +51,11 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">1 Library preparation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#main-causes-of-poor-quality-data">Main Causes of poor quality data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id1">Library preparation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#library-preparation-bias">Library preparation bias</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#library-preparation-bias">Library preparation bias</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#dna-library-bias">DNA library bias</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rna-library-bias">RNA library bias</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="2-%20Sequencing_technologies.html">2 Main Sequencing Technologies</a></li>
@@ -98,10 +102,8 @@ DNA Typically could be measured whether UV spectrocopy (Nanodrop) or electrophor
 <h2>Library preparation<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
 <p>Selecting  a suitable NGS library according to the type of sample (cell type or tissue), and the downstream analysis (WES, WGS, ChipSeq, RNA-seq, …) is essential to gurantee the quality of the data and get de desired information for our research.
 In a nutshell, library is defined as a collection of nucleic acid (RNA or DNA) fragments of a defined lenght distribution with adapters attached.</p>
-<a class="reference internal image-reference" href="_images/library_prep_explanation_Van_Djik_2014.jpg"><img alt="_images/library_prep_explanation_Van_Djik_2014.jpg" class="align-center" src="_images/library_prep_explanation_Van_Djik_2014.jpg" style="width: 400px;" /></a>
-<p><em>source: https://doi.org/10.1016/j.yexcr.2014.01.008</em></p>
-<a class="reference internal image-reference" href="_images/protocol_RNA-seq_library_bias_vanDjik_etal_2014.png"><img alt="_images/protocol_RNA-seq_library_bias_vanDjik_etal_2014.png" class="align-center" src="_images/protocol_RNA-seq_library_bias_vanDjik_etal_2014.png" style="width: 400px;" /></a>
-<p><em>source: https://doi.org/10.1016/j.yexcr.2014.01.008</em></p>
+<a class="reference internal image-reference" href="_images/library_prep_explanation_Van_Djik_2014.jpg"><img alt="*source: https://doi.org/10.1016/j.yexcr.2014.01.008*" class="align-center" src="_images/library_prep_explanation_Van_Djik_2014.jpg" style="width: 400px;" /></a>
+<a class="reference internal image-reference" href="_images/protocol_RNA-seq_library_bias_vanDjik_etal_2014.png"><img alt="*source: https://doi.org/10.1016/j.yexcr.2014.01.008*" class="align-center" src="_images/protocol_RNA-seq_library_bias_vanDjik_etal_2014.png" style="width: 400px;" /></a>
 <p>Main steps of a Library Preparation Kit:</p>
 <ul class="simple">
 <li><p><strong>Fragmentation</strong></p></li>
@@ -135,14 +137,10 @@ and more readily enable specific applications (like Whole Genome Sequencing and 
 <p>Check if DNA mets the quantity and quality requirements of the sequencing instrument. Assesss the quantity and size distribution of the library.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<blockquote>
-<div><p>RNA library preparation is more complex due to the risk of degradation and requires additional steps respect DNA:</p>
+<p>RNA library preparation is more complex due to the risk of degradation and requires additional steps respect DNA:</p>
 <ul class="simple">
 <li><p>Due that RNA is converted to cDNA, PCR-amplified libraries are necessary for many sequencing instruments.</p></li>
 <li><p>Most of the RNA-seq applications requires the removal of the ribosomal RNA (rRNA), comprising up to 90% of the total RNA.</p></li>
-</ul>
-</div></blockquote>
-<ul class="simple">
 <li><p>For especific isolation of mRNA transcripts, in addition to rRNA depletion, poly(A) must be done for selecting the RNAs containing a polyadenilated tail using oligo primers.</p></li>
 </ul>
 </div>
@@ -151,6 +149,79 @@ and more readily enable specific applications (like Whole Genome Sequencing and 
 <h2>Library preparation bias<a class="headerlink" href="#library-preparation-bias" title="Link to this heading"></a></h2>
 <p>Among the different library preparation steps presented earlier, several biases can be introduced during the process.
 Here are presented the main biases introduced for either DNA or RNA, in each library preparation step and possible solutions to avoid them.</p>
+<section id="dna-library-bias">
+<h3>DNA library bias<a class="headerlink" href="#dna-library-bias" title="Link to this heading"></a></h3>
+<p>DNA Library preparation bias</p>
+<p><em>Source: http://dx.doi.org/10.1016/j.yexcr.2014.01.008</em></p>
+<p>Here are presented the the different steps of the DNA library preparation that have been implicated in bias introduction:</p>
+<ul class="simple">
+<li><p>Fragmentation</p></li>
+</ul>
+<p>Chromatin sonication for ChIP-seq has been shown to be non-random, with euchromatin being sheared more efficiently than heterochromatin.
+.. tip::
+To solve this it has been developed the double-fragmentation ChIP-seq protocol.</p>
+<ul class="simple">
+<li><p>Size Selection</p></li>
+</ul>
+<p>Agarose gel slices by heating to 50 ºC in chaotropic salt buffer decreased the representation of AT-rich sequences.
+.. tip::
+Simple solution to this problem is to melt the gel slices in the supplied buffer at room temperature (18–22 ºC), considerably reducing GC bias.</p>
+<ul class="simple">
+<li><p>PCR</p></li>
+</ul>
+<p>Introduce bias in sample composition, due to the fact that not all fragments in the mixture are amplified with the same efficiency.
+GC-neutral fragments are amplified more efficiently than GC-rich or AT-rich fragments, and as a result fragments with high AT- or GC content may become underrepresented or are completely lost during library preparation
+.. tip::
+- Ligate adapters that contain all necessary elements for bridge amplification on Illumina flowcells are preferred, eliminating the need for PCR to add these sequences afterwards. Nevertheless, requires relatively large quantities (41 mg) of input material.
+- In the extreme case of small input amount, the single cell,multiple displacement amplification (MDA) may be the preferred amplification method. MDA is an extremely powerful amplification method, allowing microgram quantities of DNA to be obtained from femtograms of starting material. For this reason, MDA has become the method of choice for whole genome amplification (WGA) from single cells
+- PCR additives have also been reported to reduce bias, such as betaine or tetramethylammonium chloride (TMAC) may help to further improve coverage of extremely GC-rich or AT-rich regions.
+- The best overall performing polymerase appears to be Kapa HiFi.</p>
+<p>For more information see the publication <a class="reference external" href="http://dx.doi.org/10.1016/j.yexcr.2014.01.008">Library preparation methods for next generation sequencing Tone down the bias</a>.</p>
+</section>
+<section id="rna-library-bias">
+<h3>RNA library bias<a class="headerlink" href="#rna-library-bias" title="Link to this heading"></a></h3>
+<p>RNA Library preparation bias
+<em>Source: https://doi.org/10.1155/2021/6647597</em></p>
+<p>On this field are presented the main source of bias in RNA-seq, and the solutions that would be implemented to reduce it.</p>
+<ul class="simple">
+<li><p><strong>Sample Preservation and Isolation</strong></p></li>
+</ul>
+<ol class="arabic simple">
+<li><p>Degradation of RNA: Minimizing the sample processing and freezing and thawing cycles, ensures that RNA is preserved as best as possible.</p></li>
+<li><p>RNA extraction: Use high concentrations of RNA samples or avoid TRIzol extraction altogether.</p></li>
+<li><p>Alien sequence contamination:</p></li>
+</ol>
+<p>#. Low-quality and/or low-quantity RNA samples: RNase H has been the best method for detecting low-qualityRNA and even could eﬀectively replace the standard RNA-seq method based on oligo (dT).
+For low-quantity RNA,the SMART and NuGEN approaches had lower duplicationrates and signiﬁcantly decreased the necessary amount ofstarting material compared to other methods.</p>
+<ul class="simple">
+<li><p><strong>Library Construction</strong></p></li>
+</ul>
+<p>1. mRNA enrichment bias: enrich for polyadenylated RNA transcripts with oligo (dT) primers have shown that this method remove all non-poly (A) RNAs, such a reolication-dependant histones and lncRNAs (lacking of polyA),
+or incomplete mRNAs. Targeting rRNA as depletion method will not limit to only mRNA molecules (also is more expensive). subtractive hybridization using rRNA-specific probes as the method that introduced the least bias in relative transcript abundance, In contrast, exonuclease treatment tends to be less efficient in rRNA depletion
+#. RNA fragmentation bias: can introduce lenght biases or errors (propagated to later cycles), Studies have shown that methods that involve non speciﬁc restriction endonucleases indicate less sequence bias and have been shown to perform similarly to the physical methods.
+#. Primer bias: deviation due to primer during PCR amplification could be avoid using the Illumina Genome Analyzer, which perform the reverse transcription directly on the flowcells. authors propose a bioinformatics tool in the formo fare weighing scheme that adjusts for the bias and makes the distribution of the reads more uniform.
+#. Adapter ligation bias: due to substrate preferences of T4 RNA ligases, protocols that  uses a set of randomnucleotide adapters at the ligation boundary evade the capture of miRNAs. As a solution, several groups propose to randomize the 3’end of the 5’adapter and the 5’end of the 3’adapter. The strategy is based on the hypothesis that a population of degenerate adapters would average out the sequencing bias because the slightly different adapter molecules would form stable secondary structures with a more diverse population of RNAsequences             - Reverse transcription bias: reverse transcriptases tend to produce false second strand cDNA throughDNA-dependent DNA polymerase. ActinomycinD, a compound that specifically inhibits DNA-dependent DNAsynthesis, has been proposed as an agent to eliminate antisense artifacts
+#. PCR amplification bias: main source of artifacts and base composition bias in the process of library construction:
+#.Extremely AT/GC-Rich, fragments of GC-neutral can be ampliﬁed more than GC-rich or AT-rich fragments. Through the use of custom adapters, the samples</p>
+<blockquote>
+<div><p>without ampliﬁca-tion and ligation can be hybridized directly with the oligonu-cleotides on the ﬂowcell surface, thus avoiding the biases and duplicates of PCR.
+However, the ampliﬁcation-free method requires high sample input, which limits its widely used. The most eﬀective PCR enhancing additives currently used are betaine.
+It is an amino acid mimic that acts to balance the diﬀerential T m between AT and GC base pairs and has been eﬀec-tively used to improve the coverage of GC-rich templates</p>
+</div></blockquote>
+<ol class="arabic simple">
+<li><dl class="simple">
+<dt>Presence of tetramethylammonium chloride (TMAC). Their result showed that the TMAC can remarkably increase the ampliﬁcation of AT-rich regions in Kapa HiFi in the presence. Additionally,</dt><dd><p>a number of additives have been reported to play an important role in reducing the bias of PCR ampli-ﬁcation, including small amides such as formamide, small sulfoxides such as dimethyl sulfoxide (DMSO),
+or reducingcompounds such as β-mercaptoethanol or dithiothreitol(DTT).</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>PCR cyle: CR can exponentially amplify DNA/cDNA templates, thus leading to a signiﬁcant increase of ampliﬁcation bias with the number of PCR cycles. Therefore,</dt><dd><p>it is recommended that PCR be performedusing as few cycle numbers as possible to mitigation bias</p>
+</dd>
+</dl>
+</li>
+</ol>
+</section>
 </section>
 </section>
 
