@@ -15,3 +15,4 @@ Contents:
    about
    1- Library_preparation
    2- Sequencing_technologies
+   3- Quality Control and Preprocessing

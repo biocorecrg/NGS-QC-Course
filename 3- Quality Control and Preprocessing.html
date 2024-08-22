@@ -22,7 +22,8 @@
     <script src="_static/js/theme.js"></script>
     <link rel="author" title="About these documents" href="about.html" />
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="2 Main Sequencing Technologies" href="2-%20Sequencing_technologies.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -44,10 +45,20 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul>
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="about.html">About the course</a></li>
 <li class="toctree-l1"><a class="reference internal" href="1-%20Library_preparation.html">1 Library preparation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2-%20Sequencing_technologies.html">2 Main Sequencing Technologies</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">3 Quality Control and Preprocessing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#illumina">Illumina</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#quality-control">Quality Control</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#fastqc">FASTQC</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 
         </div>
@@ -106,10 +117,17 @@ the extensions supported are:</p>
 </dd>
 </dl>
 </li>
-<li><p><strong>Per sequence quality score</strong>:</p></li>
-<li><p>Per base sequence content</p></li>
-<li><p>Per base GC content</p></li>
-<li><p>Per sequence GC content</p></li>
+<li><p><strong>Per tile sequence quality</strong>: shows the quality score distribution for each tile in the flowcell.</p></li>
+<li><p><strong>Per sequence quality score</strong>: shows the distribution of the quality scores for all the reads in the file. If a huge amount of reads subset have a poor average quality this could indicate a systematic problem.</p></li>
+<li><p><strong>Per base sequence content</strong>: proportion of each base position for the four nucleotides. A strong bias in the nucleotide composition could indicate a problem in the library preparation.</p></li>
+</ol>
+<p>#. <strong>Per sequence GC content</strong>:  GC content distribution for all the reads in the file, and compared to a modelled normal distribution of human GC content.
+.. danger:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">If</span> <span class="n">the</span> <span class="n">GC</span> <span class="n">content</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">close</span> <span class="n">to</span> <span class="n">the</span> <span class="n">normal</span> <span class="n">distribution</span><span class="p">,</span> <span class="n">this</span> <span class="n">could</span> <span class="n">indicate</span> <span class="n">a</span> <span class="n">contamination</span> <span class="ow">or</span> <span class="n">a</span> <span class="n">problem</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">library</span> <span class="n">preparation</span><span class="o">.</span>
+<span class="n">Also</span><span class="p">,</span> <span class="n">depending</span> <span class="n">on</span> <span class="n">the</span> <span class="n">organism</span> <span class="n">the</span> <span class="n">GC</span> <span class="n">content</span> <span class="n">could</span> <span class="n">vary</span><span class="p">,</span> <span class="n">so</span> <span class="n">it</span> <span class="ow">is</span> <span class="n">important</span> <span class="n">to</span> <span class="n">know</span> <span class="n">the</span> <span class="n">GC</span> <span class="n">content</span> <span class="n">of</span> <span class="n">the</span> <span class="n">organism</span> <span class="n">of</span> <span class="n">interest</span> <span class="p">(</span><span class="n">so</span> <span class="n">avoid</span> <span class="n">comparison</span> <span class="k">with</span> <span class="n">reference</span> <span class="n">curve</span><span class="p">)</span><span class="o">.</span>
+</pre></div>
+</div>
+<ol class="arabic simple">
 <li><p>Per Base N content</p></li>
 <li><p>Sequence Lenght Distribution</p></li>
 <li><p>Duplicate Sequences</p></li>
@@ -117,6 +135,9 @@ the extensions supported are:</p>
 <li><p>Overrepresented kmers</p></li>
 </ol>
 </div></blockquote>
+<section id="hands-on">
+<h5>hands on:<a class="headerlink" href="#hands-on" title="Link to this heading"></a></h5>
+</section>
 </section>
 </section>
 </section>
@@ -125,7 +146,9 @@ the extensions supported are:</p>
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="2-%20Sequencing_technologies.html" class="btn btn-neutral float-left" title="2 Main Sequencing Technologies" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
 
   <hr/>
 
