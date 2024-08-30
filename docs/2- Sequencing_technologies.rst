@@ -10,22 +10,24 @@ Short Reads sequencing (Illumina)
 It consist in The  polymerase-mediated Sequencing by synthesis (SBS), this works by coupling the four DNA bases to fluorescent markers alongside a terminator chemical group that pauses DNA synthesis.
 While DNA is being synthesized, each fluorescent marker is optically verified before the tag and terminator are removed, and the next step in the sequence is recorded. 
 
-#. Cluster generation
-
-Adapter attached to the DNA fragment is used to hybridisation to the flowcell, subsequentlty PCR amplification (bridge amplification) generates a cluster of the same sequence fragment to amplify the signal
-when the nucleotide base is synthesized, thus obtaining a multiple cluster on a Flow Cell. 
 
 .. image:: images/illumina_Lu_et_al_2016.png
   :width: 400
   :align: center
+  :alt: *Source: https://www.researchgate.net/publication/357946568_New_approaches_and_concepts_to_study_complex_microbial_communities*
 
-*Source: https://www.researchgate.net/publication/357946568_New_approaches_and_concepts_to_study_complex_microbial_communities*
+#1. Cluster generation
 
+Adapter attached to the DNA fragment is used to hybridisation to the flowcell, subsequentlty PCR amplification (bridge amplification) generates a cluster of the same sequence fragment to amplify the signal
+when the nucleotide base is synthesized, thus obtaining a multiple cluster on a Flow Cell. 
 
-#. Sequencing
+#2. Sequencing
 
-On each cycle is incorporated one nucleotide to the template, it correspond to the read length (1'' cycles equal to 100 bp read length). 
-After imaging to determine which of the four colours was incorporated in each cluster of the flow cell. 
+On each cycle is incorporated one nucleotide to the template, it correspond to the read length (100 cycles equal to 100 bp read length).
+In each incorportation is imaged the fluorescent signal that indicates the base incorporated, and the terminator is removed to start the next cycle.
+
+During Library preparation adapters are added to the DNA fragments, which are used to hybridize the DNA to the flow cell, and also act as barcaodes to identify the sample, when multiples samples are pooled in the same run.
+Depending on the type of sequencing, the adapater can be added to one end of the fragment (single end) or both ends (paired end).
 
 .. image:: images/single_vs_pair_end.png
   :width: 400
@@ -35,8 +37,8 @@ Single end
 ----------
 
 Correspond to the basis of SBS, where the nucleotides added to the template sequence is read from one end of the fragment. 
-It's more simple and effcient, due to reduce the the number of stemps in the library preparation. nevertheless, the quality of nucleotides decreases as the sequencing process progresses.
-
+It's more simple and effcient, also a reduce number of steps during the library preparation is required.
+However, the quality of nucleotides decreases as the sequencing process progresses, so the ends of the reads tend to have lower quality scores.
 
 Paired end
 ----------
