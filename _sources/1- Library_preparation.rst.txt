@@ -93,26 +93,29 @@ DNA Library preparation bias
 Here are presented the the different steps of the DNA library preparation that have been implicated in bias introduction:
 
 - Fragmentation
-Chromatin sonication for ChIP-seq has been shown to be non-random, with euchromatin being sheared more efficiently than heterochromatin. 
+Chromatin sonication for ChIP-seq has been shown to be non-random, with euchromatin being sheared more efficiently than heterochromatin.
+
 .. tip::
-To solve this it has been developed the double-fragmentation ChIP-seq protocol.
+	To solve this it has been developed the double-fragmentation ChIP-seq protocol.
 
 - Size Selection
 Agarose gel slices by heating to 50 ºC in chaotropic salt buffer decreased the representation of AT-rich sequences.
+
 .. tip:: 
-Simple solution to this problem is to melt the gel slices in the supplied buffer at room temperature (18–22 ºC), considerably reducing GC bias.
+	Simple solution to this problem is to melt the gel slices in the supplied buffer at room temperature (18–22 ºC), considerably reducing GC bias.
 
 - PCR
 Introduce bias in sample composition, due to the fact that not all fragments in the mixture are amplified with the same efficiency. 
 GC-neutral fragments are amplified more efficiently than GC-rich or AT-rich fragments, and as a result fragments with high AT- or GC content may become underrepresented or are completely lost during library preparation
+
 .. tip::
-- Ligate adapters that contain all necessary elements for bridge amplification on Illumina flowcells are preferred, eliminating the need for PCR to add these sequences afterwards. Nevertheless, requires relatively large quantities (41 mg) of input material.
-- In the extreme case of small input amount, the single cell,multiple displacement amplification (MDA) may be the preferred amplification method. MDA is an extremely powerful amplification method, allowing microgram quantities of DNA to be obtained from femtograms of starting material. For this reason, MDA has become the method of choice for whole genome amplification (WGA) from single cells
-- PCR additives have also been reported to reduce bias, such as betaine or tetramethylammonium chloride (TMAC) may help to further improve coverage of extremely GC-rich or AT-rich regions.
-- The best overall performing polymerase appears to be Kapa HiFi.
+	- Ligate adapters that contain all necessary elements for bridge amplification on Illumina flowcells are preferred, eliminating the need for PCR to add these sequences afterwards. Nevertheless, requires relatively large quantities (41 mg) of input material.
+	- In the extreme case of small input amount, the single cell,multiple displacement amplification (MDA) may be the preferred amplification method. MDA is an extremely powerful amplification method, allowing microgram quantities of DNA to be obtained from femtograms of starting material. For this reason, MDA has become the method of choice for whole genome amplification (WGA) from single cells
+	- PCR additives have also been reported to reduce bias, such as betaine or tetramethylammonium chloride (TMAC) may help to further improve coverage of extremely GC-rich or AT-rich regions.
+	- The best overall performing polymerase appears to be Kapa HiFi.
 
 .. seealso::
-For more information see the publication `Library preparation methods for next generation sequencing Tone down the bias <http://dx.doi.org/10.1016/j.yexcr.2014.01.008>`_.
+	For more information see the publication `Library preparation methods for next generation sequencing Tone down the bias <http://dx.doi.org/10.1016/j.yexcr.2014.01.008>`_.
 	   
 	         
 RNA library bias

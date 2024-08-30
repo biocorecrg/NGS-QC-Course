@@ -53,8 +53,10 @@
 <li class="toctree-l2"><a class="reference internal" href="#illumina">Illumina</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#quality-control">Quality Control</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#fastqc">FASTQC</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#fastq-screen">FASTQ-Screen</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#pre-processing">Pre-processing</a></li>
 </ul>
 </li>
 </ul>
@@ -91,7 +93,7 @@
 <h2>Illumina<a class="headerlink" href="#illumina" title="Link to this heading"></a></h2>
 <section id="quality-control">
 <h3>Quality Control<a class="headerlink" href="#quality-control" title="Link to this heading"></a></h3>
-<p>Quality control of the reads contained in the fastq files needs to be check, in order to determine
+<p>After sequencing, Quality control of the reads contained in the fastq files needs to be check, in order to determine
 if the reads could be used for further analysis. the main tools used for QC in Illumina reads are FASTQC and FASTQ-Screen.</p>
 <section id="fastqc">
 <h4>FASTQC<a class="headerlink" href="#fastqc" title="Link to this heading"></a></h4>
@@ -108,37 +110,93 @@ the extensions supported are:</p>
 <li><p>SAM/BAM Mapped only (normally used for colorspace data)</p></li>
 </ul>
 </div></blockquote>
-<p>The html report generated for each file its divided in the following sections:</p>
+<p>The html report generated for each file its divided in the following modules:</p>
 <blockquote>
-<div><ol class="arabic simple">
-<li><p><strong>Basic Statistics</strong>: display the information related with the file, number and leght of the sequences, and overall %GC.</p></li>
-<li><dl class="simple">
-<dt><strong>Per base sequence quality</strong>: shows how the quality score (y axis) varys throughout the sequence reads (x axis). For each position a BoxWhisker is displayed, the red line represents the median and the blue the mean. Commonly the quality score tend to decrease at the end of the reads, because the polymerase tends to make more mistakes as the read progresses.</dt><dd><p>is the median os any base is less than 25 a warning will arise.</p>
-</dd>
-</dl>
-</li>
-<li><p><strong>Per tile sequence quality</strong>: shows the quality score distribution for each tile in the flowcell.</p></li>
-<li><p><strong>Per sequence quality score</strong>: shows the distribution of the quality scores for all the reads in the file. If a huge amount of reads subset have a poor average quality this could indicate a systematic problem.</p></li>
-<li><p><strong>Per base sequence content</strong>: proportion of each base position for the four nucleotides. A strong bias in the nucleotide composition could indicate a problem in the library preparation.</p></li>
-</ol>
-<p>#. <strong>Per sequence GC content</strong>:  GC content distribution for all the reads in the file, and compared to a modelled normal distribution of human GC content.
-.. danger:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">If</span> <span class="n">the</span> <span class="n">GC</span> <span class="n">content</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">close</span> <span class="n">to</span> <span class="n">the</span> <span class="n">normal</span> <span class="n">distribution</span><span class="p">,</span> <span class="n">this</span> <span class="n">could</span> <span class="n">indicate</span> <span class="n">a</span> <span class="n">contamination</span> <span class="ow">or</span> <span class="n">a</span> <span class="n">problem</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">library</span> <span class="n">preparation</span><span class="o">.</span>
-<span class="n">Also</span><span class="p">,</span> <span class="n">depending</span> <span class="n">on</span> <span class="n">the</span> <span class="n">organism</span> <span class="n">the</span> <span class="n">GC</span> <span class="n">content</span> <span class="n">could</span> <span class="n">vary</span><span class="p">,</span> <span class="n">so</span> <span class="n">it</span> <span class="ow">is</span> <span class="n">important</span> <span class="n">to</span> <span class="n">know</span> <span class="n">the</span> <span class="n">GC</span> <span class="n">content</span> <span class="n">of</span> <span class="n">the</span> <span class="n">organism</span> <span class="n">of</span> <span class="n">interest</span> <span class="p">(</span><span class="n">so</span> <span class="n">avoid</span> <span class="n">comparison</span> <span class="k">with</span> <span class="n">reference</span> <span class="n">curve</span><span class="p">)</span><span class="o">.</span>
-</pre></div>
-</div>
-<ol class="arabic simple">
-<li><p>Per Base N content</p></li>
-<li><p>Sequence Lenght Distribution</p></li>
-<li><p>Duplicate Sequences</p></li>
-<li><p>Overrepresented sequences</p></li>
-<li><p>Overrepresented kmers</p></li>
-</ol>
+<div><p>#1. <strong>Basic Statistics</strong>: display the information related with the file, number and leght of the sequences, and overall %GC.
+#2. <strong>Per base sequence quality</strong>: shows how the quality score (y axis) varys throughout the sequence reads (x axis). For each position a BoxWhisker is displayed, the red line represents the median and the blue the mean. Commonly the quality score tend to decrease at the end of the reads, because the polymerase tends to make more mistakes as the read progresses.</p>
+<blockquote>
+<div><p>is the median os any base is less than 25 a warning will arise.</p>
 </div></blockquote>
-<section id="hands-on">
-<h5>hands on:<a class="headerlink" href="#hands-on" title="Link to this heading"></a></h5>
+<p>#3. <strong>Per tile sequence quality</strong>: shows the quality score distribution for each tile in the flowcell.
+#4. <strong>Per sequence quality score</strong>: shows the distribution of the quality scores for all the reads in the file. If a huge amount of reads subset have a poor average quality this could indicate a systematic problem.
+#5. <strong>Per base sequence content</strong>: proportion of each base position for the four nucleotides. A strong bias in the nucleotide composition could indicate a problem in the library preparation.
+#6. <strong>Per sequence GC content</strong>:  GC content distribution for all the reads in the file, and compared to a modelled normal distribution of human GC content.</p>
+</div></blockquote>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<blockquote>
+<div><p>If the GC content is not close to the normal distribution, this could indicate a contamination or a problem in the library preparation.
+Also, depending on the organism the GC content could vary, so it is important to know the GC content of the organism of interest (so avoid comparison with reference curve).</p>
+</div></blockquote>
+<p>#7. <strong>Per Base N content</strong>: If the sequencer is unable to determine the base in a position, it will be represented as an ‘N’. This section shows the distribution of Ns in the reads.
+#8. <strong>Sequence Lenght Distribution</strong>: distribution of fragment sizes, for delimited size lenght (number of cycles) a peak only at one size is observed.
+#9. <strong>Duplicate Sequences</strong>: shows the number of duplicated sequences in the file. a high level of duplication could indicate a enrichment bias (i.e. PCR amplification). Low level of duplication may indicate a very high level of coverage of the target sequence.
+#10. <strong>Overrepresented sequences</strong>: show in a single sequence is very overrepresented in the file. This could indicate a contamination or a problem in the library preparation.
+#11. <a href="#id1"><span class="problematic" id="id2">**</span></a>Adapter content <a href="#id3"><span class="problematic" id="id4">**</span></a>: shows the presence of adapter sequences in the reads. If  there is presence of adapters, the reads should be trimmed before further analysis.</p>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>For more information about FASTQC modules interpretation visit the <a class="reference external" href="https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/">FASTQC</a> website.</p>
+</div>
+</section>
+<section id="fastq-screen">
+<h4>FASTQ-Screen<a class="headerlink" href="#fastq-screen" title="Link to this heading"></a></h4>
+<p>Is a tool that checks if the reads are generated from the genome of the organism of interest,
+quantifying the proportion of reads that map to a reference genomes and also to a set of contaminants.
+In human sequencing data the standard reference genomes to check are:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Human</p></li>
+<li><p>Mouse</p></li>
+<li><p>Rat</p></li>
+<li><p>Droshophila</p></li>
+<li><p>Worm</p></li>
+<li><p>Yeast</p></li>
+<li><p>Arabidopsis</p></li>
+<li><p>E.coli</p></li>
+<li><p>PhiX: is a control used by Illumina to check the quality of the sequencing run (if the library is under or overloaded)</p></li>
+<li><p>rRNA: in RNA-seq  is a good control of rRNA depletion during library preparation has not beeen amplified.</p></li>
+<li><p>Mitochondrial: in single nucleus RNA-seq is a good control of the nuclear isolation during the DNA extraction.</p></li>
+<li><p>Lambda</p></li>
+<li><p>Vectors: to check that vectors used during library preprartion</p></li>
+<li><p>Adapters</p></li>
+</ul>
+</div></blockquote>
+<p>Example of a FASTQ-Screen report:</p>
+<p>When working with several samples and reports theese could be aggregate in a unique report using “MULTIQC”” (<a class="reference external" href="https://multiqc.info/">https://multiqc.info/</a>)</p>
 </section>
 </section>
+<section id="pre-processing">
+<h3>Pre-processing<a class="headerlink" href="#pre-processing" title="Link to this heading"></a></h3>
+<p>After the quality control, in case adapter content or low quality bases are detected,
+the reads need to be pre-processed in order to get rid of them and improve quality of the reads for further analysis.</p>
+<p>Typical tools used for pre-processing are:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Trimmomatic</p></li>
+<li><p>Cutadapt, only remove the adapaters (it needs to be used in combination with sickle), requires the adapter sequence to be known.</p></li>
+<li><p>Sickle, remove low quality tail bases.</p></li>
+<li><p>fastp</p></li>
+</ul>
+</div></blockquote>
+<p>fastp source: <em>https://academic.oup.com/bioinformatics/article/34/17/i884/5093234</em></p>
+<p>Fastp performs in all one the following corrections:</p>
+<ul class="simple">
+<li><p>Adapter removal: in paired-end data, fastp seeks the overlap of each pair and considers the bases that fall out of the</p></li>
+</ul>
+<blockquote>
+<div><p>overlapped regions as adapter contents. Not need to specify the adapter sequence.</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>Base correction:  for good quality overlapped sequences, quality differences are corrected if one of the bases has a higher score.
+Tipically base quality decrease towards the 3’ end of the read, poor quality tails are removed to leave only-high quality reads for aligment.
+sliding window method to drop the low-quality bases of each read’s head and tail. The window can slide from either 5′ to 3′ or from 3′ to 5′, and the average quality score within the window is evaluated.
+If the average quality is lower than a given threshold, then the bases in the window will be marked as discarded</p></li>
+<li><p>Reads which are below a certain length are also removed.</p></li>
+<li><p>Poly-G tails are recognised and removed (Sequencing error in the end of the read produced by some artifacts, such as Illumina and Novaseq, for the use of two colors to detect the four bases)</p></li>
+</ul>
+<p>After preprocessing our reads, its important to check again the Quality. Fastp generates both htm and json report for asses the quality of our reads.
+The json reports could be aggregated with MULTIQC.</p>
 </section>
 </section>
 </section>
