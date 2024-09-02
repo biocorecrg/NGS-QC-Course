@@ -51,7 +51,7 @@ The html report generated for each file its divided in the following modules:
     4. **Per sequence quality score**: shows the distribution of the quality scores for all the reads in the file. 
     If a huge amount of reads subset have a poor average quality this could indicate a systematic problem. 
 
-        .. image:: docs/images/FASTQC_report_images/Per_seq_quality_scores.png
+        .. image:: images/FASTQC_report_images/Per_seq_quality_scores.png
             :width: 400
             :align: center
             :alt: *Per Sequence Quality FASTQC module*
@@ -73,7 +73,7 @@ The html report generated for each file its divided in the following modules:
 
         .. danger::
                 If the GC content is not close to the normal distribution, this could indicate a contamination or a problem in the library preparation. 
-                Also, depending on the organism the GC content could vary, so it is important to know the GC content of the organism of interest (so avoid comparison with reference curve).
+                Also, depending on the organism the GC content could vary, so if possible it's good to know the GC content of the organism of interest previoy.
 
     7. **Per Base N content**: If the sequencer is unable to determine the base in a position, it will be represented as an 'N'. This section shows the distribution of Ns in the reads.
 
@@ -89,9 +89,9 @@ The html report generated for each file its divided in the following modules:
             :align: center
             :alt: *Duplicate Sequences FASTQC module*
 
-    10. **Overrepresented sequences**: show in a single sequence is very overrepresented in the file. This could indicate a contamination or a problem in the library preparation.
+    10. **Overrepresented sequences**: Show in a single sequence is very overrepresented in the file. This could indicate a contamination or a problem in the library preparation.
 
-    11. **Adapter content **: shows the presence of adapter sequences in the reads. If  there is presence of adapters, the reads should be trimmed before further analysis. 
+    11. **Adapter content**: Shows the presence of adapter sequences in the reads. If  there is presence of adapters, the reads should be trimmed before further analysis. 
 
         .. image:: images/FASTQC_report_images/Adapter_content.png
             :width: 400
@@ -102,7 +102,7 @@ The html report generated for each file its divided in the following modules:
 .. seealso:: 
     .. _FASTQC: https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/
     
-    For more information about FASTQC modules interpretation visit the FASTQC_ website.
+    For more information about FASTQC modules interpretation visit the FASTQC_ manual website.
 
 
 FASTQ-Screen
