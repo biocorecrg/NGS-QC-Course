@@ -13,7 +13,7 @@ Contents:
    :maxdepth: 1
 
    about
-   1- Library_preparation
-   2- Sequencing_technologies
+   1- Library preparation
+   2- Sequencing technologies
    3- Quality Control and Preprocessing
    4- Quality of the mapping
