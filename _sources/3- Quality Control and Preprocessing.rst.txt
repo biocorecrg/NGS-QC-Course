@@ -29,23 +29,24 @@ the extensions supported are:
 
 The html report generated for each file its divided in the following modules:
 
-    #1. **Basic Statistics**: display the information related with the file, number and leght of the sequences, and overall %GC. 
-    #2. **Per base sequence quality**: shows how the quality score (y axis) varys throughout the sequence reads (x axis). For each position a BoxWhisker is displayed, the red line represents the median and the blue the mean. Commonly the quality score tend to decrease at the end of the reads, because the polymerase tends to make more mistakes as the read progresses.
+    1. **Basic Statistics**: display the information related with the file, number and leght of the sequences, and overall %GC. 
+    2. **Per base sequence quality**: shows how the quality score (y axis) varys throughout the sequence reads (x axis). For each position a BoxWhisker is displayed, the red line represents the median and the blue the mean. Commonly the quality score tend to decrease at the end of the reads, because the polymerase tends to make more mistakes as the read progresses.
         is the median os any base is less than 25 a warning will arise.
-    #3. **Per tile sequence quality**: shows the quality score distribution for each tile in the flowcell.
-    #4. **Per sequence quality score**: shows the distribution of the quality scores for all the reads in the file. If a huge amount of reads subset have a poor average quality this could indicate a systematic problem. 
-    #5. **Per base sequence content**: proportion of each base position for the four nucleotides. A strong bias in the nucleotide composition could indicate a problem in the library preparation.
-    #6. **Per sequence GC content**:  GC content distribution for all the reads in the file, and compared to a modelled normal distribution of human GC content.
+    3. **Per tile sequence quality**: shows the quality score distribution for each tile in the flowcell.
+    4. **Per sequence quality score**: shows the distribution of the quality scores for all the reads in the file. If a huge amount of reads subset have a poor average quality this could indicate a systematic problem. 
+    5. **Per base sequence content**: proportion of each base position for the four nucleotides. A strong bias in the nucleotide composition could indicate a problem in the library preparation.
+    6. **Per sequence GC content**:  GC content distribution for all the reads in the file, and compared to a modelled normal distribution of human GC content.
 
-.. danger::
-        If the GC content is not close to the normal distribution, this could indicate a contamination or a problem in the library preparation. 
-        Also, depending on the organism the GC content could vary, so it is important to know the GC content of the organism of interest (so avoid comparison with reference curve).
+    .. danger::
+            If the GC content is not close to the normal distribution, this could indicate a contamination or a problem in the library preparation. 
+            Also, depending on the organism the GC content could vary, so it is important to know the GC content of the organism of interest (so avoid comparison with reference curve).
 
-    #7. **Per Base N content**: If the sequencer is unable to determine the base in a position, it will be represented as an 'N'. This section shows the distribution of Ns in the reads.
-    #8. **Sequence Lenght Distribution**: distribution of fragment sizes, for delimited size lenght (number of cycles) a peak only at one size is observed. 
-    #9. **Duplicate Sequences**: shows the number of duplicated sequences in the file. a high level of duplication could indicate a enrichment bias (i.e. PCR amplification). Low level of duplication may indicate a very high level of coverage of the target sequence. 
-    #10. **Overrepresented sequences**: show in a single sequence is very overrepresented in the file. This could indicate a contamination or a problem in the library preparation.
-    #11. **Adapter content **: shows the presence of adapter sequences in the reads. If  there is presence of adapters, the reads should be trimmed before further analysis. 
+
+    7. **Per Base N content**: If the sequencer is unable to determine the base in a position, it will be represented as an 'N'. This section shows the distribution of Ns in the reads.
+    8. **Sequence Lenght Distribution**: distribution of fragment sizes, for delimited size lenght (number of cycles) a peak only at one size is observed. 
+    9. **Duplicate Sequences**: shows the number of duplicated sequences in the file. a high level of duplication could indicate a enrichment bias (i.e. PCR amplification). Low level of duplication may indicate a very high level of coverage of the target sequence. 
+    10. **Overrepresented sequences**: show in a single sequence is very overrepresented in the file. This could indicate a contamination or a problem in the library preparation.
+    11. **Adapter content **: shows the presence of adapter sequences in the reads. If  there is presence of adapters, the reads should be trimmed before further analysis. 
 
 .. seealso:: 
     .. _FASTQC: https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/
@@ -108,3 +109,9 @@ Fastp performs in all one the following corrections:
 
 After preprocessing our reads, its important to check again the Quality. Fastp generates both htm and json report for asses the quality of our reads.
 The json reports could be aggregated with MULTIQC.
+
+Example of fastp report. 
+
+
+
+

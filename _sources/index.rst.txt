@@ -16,3 +16,4 @@ Contents:
    1- Library_preparation
    2- Sequencing_technologies
    3- Quality Control and Preprocessing
+   4- Quality of the mapping
