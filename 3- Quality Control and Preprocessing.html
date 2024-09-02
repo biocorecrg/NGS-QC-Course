@@ -24,7 +24,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="4 Quality of the Mapping" href="4-%20Quality%20of%20the%20mapping.html" />
-    <link rel="prev" title="About the course" href="about.html" /> 
+    <link rel="prev" title="2 Main Sequencing Technologies" href="2-%20Sequencing%20technologies.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -48,6 +48,8 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="about.html">About the course</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1-%20Library%20preparation.html">1 Library preparation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2-%20Sequencing%20technologies.html">2 Main Sequencing Technologies</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">3 Quality Control and Preprocessing</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#illumina">Illumina</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#quality-control">Quality Control</a><ul>
@@ -114,27 +116,58 @@ the extensions supported are:</p>
 <blockquote>
 <div><ol class="arabic simple">
 <li><p><strong>Basic Statistics</strong>: display the information related with the file, number and leght of the sequences, and overall %GC.</p></li>
-<li><dl class="simple">
-<dt><strong>Per base sequence quality</strong>: shows how the quality score (y axis) varys throughout the sequence reads (x axis). For each position a BoxWhisker is displayed, the red line represents the median and the blue the mean. Commonly the quality score tend to decrease at the end of the reads, because the polymerase tends to make more mistakes as the read progresses.</dt><dd><p>is the median os any base is less than 25 a warning will arise.</p>
-</dd>
-</dl>
-</li>
-<li><p><strong>Per tile sequence quality</strong>: shows the quality score distribution for each tile in the flowcell.</p></li>
-<li><p><strong>Per sequence quality score</strong>: shows the distribution of the quality scores for all the reads in the file. If a huge amount of reads subset have a poor average quality this could indicate a systematic problem.</p></li>
-<li><p><strong>Per base sequence content</strong>: proportion of each base position for the four nucleotides. A strong bias in the nucleotide composition could indicate a problem in the library preparation.</p></li>
-<li><p><strong>Per sequence GC content</strong>:  GC content distribution for all the reads in the file, and compared to a modelled normal distribution of human GC content.</p></li>
 </ol>
+<p>2. <strong>Per base sequence quality</strong>: shows how the quality score (y axis) varys throughout the sequence reads (x axis).
+For each position a BoxWhisker is displayed, the red line represents the median and the blue the mean.
+Commonly the quality score tend to decrease at the end of the reads, because the polymerase tends to make more mistakes as the read progresses.</p>
+<blockquote>
+<div><p>is the median os any base is less than 25 a warning will arise.</p>
+<a class="reference internal image-reference" href="_images/Per_base_seq_quality.png"><img alt="*Per Base Sequence Quality FASTQC module*" class="align-center" src="_images/Per_base_seq_quality.png" style="width: 400px;" /></a>
+</div></blockquote>
+<ol class="arabic" start="3">
+<li><p><strong>Per tile sequence quality</strong>: shows the quality score distribution for each tile in the flowcell.</p>
+<blockquote>
+<div><a class="reference internal image-reference" href="_images/Per_tile_seq_quality.png"><img alt="*Per Tile Sequence Quality FASTQC module*" class="align-center" src="_images/Per_tile_seq_quality.png" style="width: 400px;" /></a>
+</div></blockquote>
+</li>
+</ol>
+<p>4. <strong>Per sequence quality score</strong>: shows the distribution of the quality scores for all the reads in the file.
+If a huge amount of reads subset have a poor average quality this could indicate a systematic problem.</p>
+<blockquote>
+<div><a class="reference internal image-reference" href="docs/images/FASTQC_report_images/Per_seq_quality_scores.png"><img alt="*Per Sequence Quality FASTQC module*" class="align-center" src="docs/images/FASTQC_report_images/Per_seq_quality_scores.png" style="width: 400px;" /></a>
+</div></blockquote>
+<p>5. <strong>Per base sequence content</strong>: proportion of each base position for the four nucleotides.
+A strong bias in the nucleotide composition could indicate a problem in the library preparation.</p>
+<blockquote>
+<div><a class="reference internal image-reference" href="_images/Per_base_seq_content.png"><img alt="*Per Base Sequence Content FASTQC module*" class="align-center" src="_images/Per_base_seq_content.png" style="width: 400px;" /></a>
+</div></blockquote>
+<ol class="arabic" start="6">
+<li><p><strong>Per sequence GC content</strong>:  GC content distribution for all the reads in the file, and compared to a modelled normal distribution of human GC content.</p>
+<blockquote>
+<div><a class="reference internal image-reference" href="_images/Per_seq_GC_content.png"><img alt="*Per Sequence GC Content FASTQC module*" class="align-center" src="_images/Per_seq_GC_content.png" style="width: 400px;" /></a>
 <div class="admonition danger">
 <p class="admonition-title">Danger</p>
 <p>If the GC content is not close to the normal distribution, this could indicate a contamination or a problem in the library preparation.
 Also, depending on the organism the GC content could vary, so it is important to know the GC content of the organism of interest (so avoid comparison with reference curve).</p>
 </div>
-<ol class="arabic simple" start="7">
-<li><p><strong>Per Base N content</strong>: If the sequencer is unable to determine the base in a position, it will be represented as an ‘N’. This section shows the distribution of Ns in the reads.</p></li>
-<li><p><strong>Sequence Lenght Distribution</strong>: distribution of fragment sizes, for delimited size lenght (number of cycles) a peak only at one size is observed.</p></li>
-<li><p><strong>Duplicate Sequences</strong>: shows the number of duplicated sequences in the file. a high level of duplication could indicate a enrichment bias (i.e. PCR amplification). Low level of duplication may indicate a very high level of coverage of the target sequence.</p></li>
+</div></blockquote>
+</li>
+<li><p><strong>Per Base N content</strong>: If the sequencer is unable to determine the base in a position, it will be represented as an ‘N’. This section shows the distribution of Ns in the reads.</p>
+<blockquote>
+<div><a class="reference internal image-reference" href="_images/Per_base_N_content.png"><img alt="*Per Base N Content FASTQC module*" class="align-center" src="_images/Per_base_N_content.png" style="width: 400px;" /></a>
+</div></blockquote>
+</li>
+</ol>
+<ol class="arabic" start="9">
+<li><p><strong>Duplicate Sequences</strong>: shows the number of duplicated sequences in the file. a high level of duplication could indicate a enrichment bias (i.e. PCR amplification). Low level of duplication may indicate a very high level of coverage of the target sequence.</p>
+<blockquote>
+<div><a class="reference internal image-reference" href="_images/Seq_duplication_levels.png"><img alt="*Duplicate Sequences FASTQC module*" class="align-center" src="_images/Seq_duplication_levels.png" style="width: 400px;" /></a>
+</div></blockquote>
+</li>
 <li><p><strong>Overrepresented sequences</strong>: show in a single sequence is very overrepresented in the file. This could indicate a contamination or a problem in the library preparation.</p></li>
-<li><p><a href="#id1"><span class="problematic" id="id2">**</span></a>Adapter content <a href="#id3"><span class="problematic" id="id4">**</span></a>: shows the presence of adapter sequences in the reads. If  there is presence of adapters, the reads should be trimmed before further analysis.</p></li>
+<li><p><a href="#id1"><span class="problematic" id="id2">**</span></a>Adapter content <a href="#id3"><span class="problematic" id="id4">**</span></a>: shows the presence of adapter sequences in the reads. If  there is presence of adapters, the reads should be trimmed before further analysis.</p>
+<a class="reference internal image-reference" href="_images/Adapter_content.png"><img alt="*Adapter Content FASTQC module*" class="align-center" src="_images/Adapter_content.png" style="width: 400px;" /></a>
+</li>
 </ol>
 </div></blockquote>
 <div class="admonition seealso">
@@ -157,15 +190,32 @@ In human sequencing data the standard reference genomes to check are:</p>
 <li><p>Yeast</p></li>
 <li><p>Arabidopsis</p></li>
 <li><p>E.coli</p></li>
+<li><p>Mitochondrial: in single nucleus RNA-seq is a good control of the nuclear isolation during the DNA extraction.</p></li>
+</ul>
+</div></blockquote>
+<p>Also, other sources of contaminats could be checked:</p>
+<blockquote>
+<div><ul class="simple">
 <li><p>PhiX: is a control used by Illumina to check the quality of the sequencing run (if the library is under or overloaded)</p></li>
 <li><p>rRNA: in RNA-seq  is a good control of rRNA depletion during library preparation has not beeen amplified.</p></li>
-<li><p>Mitochondrial: in single nucleus RNA-seq is a good control of the nuclear isolation during the DNA extraction.</p></li>
 <li><p>Lambda</p></li>
 <li><p>Vectors: to check that vectors used during library preprartion</p></li>
 <li><p>Adapters</p></li>
 </ul>
 </div></blockquote>
 <p>Example of a FASTQ-Screen report:</p>
+<ul>
+<li><p>Mapping result tables with the percentage of reads that map to each reference genome.</p>
+<blockquote>
+<div><a class="reference internal image-reference" href="_images/Mapping_results_tables.png"><img alt="*Adapter Content FASTQC module*" class="align-center" src="_images/Mapping_results_tables.png" style="width: 400px;" /></a>
+</div></blockquote>
+</li>
+<li><p>Mapping results tables values in a plot.</p>
+<blockquote>
+<div><a class="reference internal image-reference" href="images/FASTQ-Screen/Mapping_results_plots.png"><img alt="*Adapter Content FASTQC module*" class="align-center" src="images/FASTQ-Screen/Mapping_results_plots.png" style="width: 400px;" /></a>
+</div></blockquote>
+</li>
+</ul>
 <p>When working with several samples and reports theese could be aggregate in a unique report using “MULTIQC”” (<a class="reference external" href="https://multiqc.info/">https://multiqc.info/</a>)</p>
 </section>
 </section>
@@ -209,7 +259,7 @@ The json reports could be aggregated with MULTIQC.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="about.html" class="btn btn-neutral float-left" title="About the course" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="2-%20Sequencing%20technologies.html" class="btn btn-neutral float-left" title="2 Main Sequencing Technologies" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="4-%20Quality%20of%20the%20mapping.html" class="btn btn-neutral float-right" title="4 Quality of the Mapping" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
