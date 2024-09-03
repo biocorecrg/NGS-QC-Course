@@ -64,16 +64,11 @@ Check if DNA mets the quantity and quality requirements of the sequencing instru
 	- For especific isolation of mRNA transcripts, in addition to rRNA depletion, poly(A) must be done for selecting the RNAs containing a polyadenilated tail using oligo primers.
 	
 
-Library preparation bias 
-========================
-
-Among the different library preparation steps presented earlier, several biases can be introduced during the process. 
-Here are presented the main biases introduced for DNA and RNA, in each library preparation step and possible solutions to avoid them.
 
 DNA library bias
-----------------
-
-Here are presented the the different steps of the DNA library preparation that have been implicated in bias introduction:
+================
+Among the different library preparation steps presented earlier, several biases can be introduced during the process. 
+Here are presented the main biases introduced for DNA in each library preparation step and possible solutions to avoid them.
 
 .. image:: images/library_prep_explanation_Van_Djik_2014.jpg
   :width: 400
@@ -101,19 +96,16 @@ Introduce bias in sample composition, due to the fact that not all fragments in 
 GC-neutral fragments are amplified more efficiently than GC-rich or AT-rich fragments, and as a result fragments with high AT- or GC content may become underrepresented or are completely lost during library preparation
 
 .. tip::
-	- Ligate adapters that contain all necessary elements for bridge amplification on Illumina flowcells are preferred, eliminating the need for PCR to add these sequences afterwards. 
-	Nevertheless, requires relatively large quantities (41 mg) of input material.
-	- In the extreme case of small input amount, the single cell,multiple displacement amplification (MDA) may be the preferred amplification method. 
-	MDA is an extremely powerful amplification method, allowing microgram quantities of DNA to be obtained from femtograms of starting material. 
-	For this reason, MDA has become the method of choice for whole genome amplification (WGA) from single cells
+	- Ligate adapters that contain all necessary elements for bridge amplification on Illumina flowcells are preferred, eliminating the need for PCR to add these sequences afterwards. Nevertheless, requires relatively large quantities (41 mg) of input material.
+	- In the extreme case of small input amount, the single cell,multiple displacement amplification (MDA) may be the preferred amplification method. MDA is an extremely powerful amplification method, allowing microgram quantities of DNA to be obtained from femtograms of starting material. For this reason, MDA has become the method of choice for whole genome amplification (WGA) from single cells
 	- PCR additives have also been reported to reduce bias, such as betaine or tetramethylammonium chloride (TMAC) may help to further improve coverage of extremely GC-rich or AT-rich regions.
 	- The best overall performing polymerase appears to be Kapa HiFi.
 
 .. seealso::
-	For more information see the publication `Library preparation methods for next generation sequencing Tone down the bias <http://dx.doi.org/10.1016/j.yexcr.2014.01.008>`_.
+	For more information see the publication `Library preparation methods for next generation sequencing: Tone down the bias <http://dx.doi.org/10.1016/j.yexcr.2014.01.008>`_.
 	            
 RNA library bias
-----------------
+================
 
 On this section are presented the main source of bias in RNA-seq, and the solutions that could be implemented to reduce it. 
 
@@ -123,51 +115,58 @@ On this section are presented the main source of bias in RNA-seq, and the soluti
   :alt: *source: https://doi.org/10.1016/j.yexcr.2014.01.008*
 
 
-- **Sample Preservation and Isolation**
+**Sample Preservation and Isolation**
+--------------------------------------	
 
-1. Degradation of RNA: 
-.. tip:: 
-	Minimizing the sample processing and freezing and thawing cycles, ensures that RNA is preserved as best as possible. 
+1. Degradation of RNA:
 
-2. RNA extraction: 
-.. tip::
-	If possible use high concentrations of RNA samples or avoid TRIzol extraction altogether. 
+	.. tip:: 
+		Minimizing the sample processing and freezing and thawing cycles, ensures that RNA is preserved as best as possible. 
 
-- **Library Construction**
+2. RNA extraction:
 
-1. Low-quality and/or low-quantity RNA samples: 
+	.. tip::
+		If possible use high concentrations of RNA samples or avoid TRIzol extraction altogether. 
+
+**Library Construction**
+-------------------------
+
+1. **Low-quality and/or low-quantity RNA samples**: 
+
 	.. tip::
 		RNase H has been the best method for detecting low-qualityRNA and even could eﬀectively replace the standard RNA-seq method based on oligo (dT). 
 		For low-quantity RNA,the SMART and NuGEN approaches had lower duplication rates and signiﬁcantly decreased the necessary amount of starting material compared to other methods.
 
-
-2. mRNA enrichment bias: In eukaryotes enrich for polyadenylated RNA transcripts with oligo (dT) primers have shown that this method remove all non-poly (A) RNAs, such a reolication-dependant histones and lncRNAs (lacking of polyA),
+2. **mRNA enrichment bias**: In eukaryotes enrich for polyadenylated RNA transcripts with oligo (dT) primers have shown that this method remove all non-poly (A) RNAs, such a reolication-dependant histones and lncRNAs (lacking of polyA),
 or incomplete mRNAs. 
+
 	.. tip::
 		Targeting rRNA as depletion method will not limit to only mRNA molecules, may capture more immature transcripts, leading to a complexity increase of sequencing data (also is more expensive). 
 		Subtractive hybridization using rRNA-specific probes as the method that introduced the least bias in relative transcript abundance,
 
-3. RNA fragmentation bias: There are two major approaches of RNA fragmentation: chemical (using metal ions) and enzymatic (using RNase III). During this process could be introduced lenght biases or errors (propagated to later cycles).
+3. **RNA fragmentation bias**: There are two major approaches of RNA fragmentation: chemical (using metal ions) and enzymatic (using RNase III). During this process could be introduced lenght biases or errors (propagated to later cycles).
+
 	.. tip:: 
 		Studies have shown that methods that involve non speciﬁc restriction endonucleases indicate less sequence bias and have been shown to perform similarly to the physical methods. Also enzymatic methoda are easy to automate 
 
-4. Primer bias: During reverse transcription into cDNA by random hexamers can lead to deviation of nucleotide content of RNA sequencing reads, resulting in low complexity of RNA sequencing data.
+4. **Primer bias**: During reverse transcription into cDNA by random hexamers can lead to deviation of nucleotide content of RNA sequencing reads, resulting in low complexity of RNA sequencing data.
+
 	.. tip::
 		Could be avoid using the Illumina Genome Analyzer, which perform the reverse transcription directly on the flowcells, avoiding the PCR.
 		Also has been proposed a bioinformatics tool in a reweighing scheme to adjust for the bias and make the distribution of the reads more uniform.
 
-5. Adapter ligation bias: Adapter ligation introduces a significant but widely overlooked bias in the results of NGS small RNA sequencing.
+5. **Adapter ligation bias**: Adapter ligation introduces a significant but widely overlooked bias in the results of NGS small RNA sequencing.
    .. tip:: 
    As a solution, several groups propose to randomize the 3' end of the 5'adapter and the 5'end of the 3'adapter. 
    The strategy is based on the hypothesis that a population of degenerate adapters would average out the sequencing bias because the slightly different adapter molecules would form stable secondary structures with a more diverse population of RNAsequences		- Reverse transcription bias: reverse transcriptases tend to produce false second strand cDNA throughDNA-dependent DNA polymerase. ActinomycinD, a compound that specifically inhibits DNA-dependent DNAsynthesis, has been proposed as an agent to eliminate antisense artifacts
 
-6. Reverse Transcription: A known feature of reverse transcriptases is that they tend to produce false second strand cDNA through DNA-dependent DNA polymerase.
+6. **Reverse Transcription**: A known feature of reverse transcriptases is that they tend to produce false second strand cDNA through DNA-dependent DNA polymerase.
 This may not be able to distinguish the sense and antisense transcript and create difficulties for the data analysis.
 	.. tip::
 		- The deoxyuridine triphosphate (dUTP) method, one of the leading cDNA-based strategies, can be specifically removed by enzymatic digestion
 		- Another method is to synthesize the first strand of cDNA using labeled random hexamer primer and SSS using DNA-RNA template-switching primer
 
-7. PCR amplification bias: main source of artifacts and base composition bias in the process of library construction:
+7. **PCR amplification bias**: main source of artifacts and base composition bias in the process of library construction:
 
 	7.1. Extremely AT/GC-Rich: Fragments of GC-neutral can be ampliﬁed more than GC-rich or AT-rich fragments. 
 		.. tip::

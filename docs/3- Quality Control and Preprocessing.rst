@@ -10,7 +10,7 @@ Illumina
 Quality Control
 ---------------
 
-After sequencing, Quality control of the reads contained in the fastq files needs to be check, in order to determine 
+After sequencing, Quality control of the reads contained in the FASTQ files needs to be check, in order to determine 
 if the reads could be used for further analysis. the main tools used for QC in Illumina reads are FASTQC and FASTQ-Screen.
 
 FASTQC
@@ -27,28 +27,27 @@ the extensions supported are:
     - BAM 
     - SAM/BAM Mapped only (normally used for colorspace data) 
 
-The html report generated for each file its divided in the following modules:
-
-    1. **Basic Statistics**: display the information related with the file, number and leght of the sequences, and overall %GC. 
-
-    2. **Per base sequence quality**: shows how the quality score (y axis) varys throughout the sequence reads (x axis). 
+It is available for usage by CLI and GUI. It generates a html report for each file and its divided in the following Quality metrics modules:
+    
+    1. **Basic Statistics**: Display the information related with the file, number and lenght of the sequences, and overall %GC. 
+    
+    2. **Per base sequence quality**: Shows how the quality score (y axis) varys throughout the sequence reads (x axis). 
     For each position a BoxWhisker is displayed, the red line represents the median and the blue the mean. 
     Commonly the quality score tend to decrease at the end of the reads, because the polymerase tends to make more mistakes as the read progresses.
-        is the median os any base is less than 25 a warning will arise.
 
         .. image:: images/FASTQC_report_images/Per_base_seq_quality.png
             :width: 400
             :align: center
             :alt: *Per Base Sequence Quality FASTQC module*
 
-    3. **Per tile sequence quality**: shows the quality score distribution for each tile in the flowcell.
-    
+    3. **Per tile sequence quality**: Shows the quality score distribution for each tile in the flowcell.
+
         .. image:: images/FASTQC_report_images/Per_tile_seq_quality.png
             :width: 400
             :align: center
             :alt: *Per Tile Sequence Quality FASTQC module*
 
-    4. **Per sequence quality score**: shows the distribution of the quality scores for all the reads in the file. 
+    4. **Per sequence quality score**: Shows the distribution of the quality scores for all the reads in the file. 
     If a huge amount of reads subset have a poor average quality this could indicate a systematic problem. 
 
         .. image:: images/FASTQC_report_images/Per_seq_quality_scores.png
@@ -56,7 +55,7 @@ The html report generated for each file its divided in the following modules:
             :align: center
             :alt: *Per Sequence Quality FASTQC module*
 
-    5. **Per base sequence content**: proportion of each base position for the four nucleotides. 
+    5. **Per base sequence content**: Proportion of each base position for the four nucleotides. 
     A strong bias in the nucleotide composition could indicate a problem in the library preparation.
 
         .. image:: images/FASTQC_report_images/Per_base_seq_content.png
@@ -64,7 +63,7 @@ The html report generated for each file its divided in the following modules:
             :align: center
             :alt: *Per Base Sequence Content FASTQC module*
 
-    6. **Per sequence GC content**:  GC content distribution for all the reads in the file, and compared to a modelled normal distribution of human GC content.
+    6. **Per sequence GC content**:  GC content distribution for all the reads in the file, and compared to a modelled normal distribution of human GC content (blue line).
 
         .. image:: images/FASTQC_report_images/Per_seq_GC_content.png
             :width: 400
@@ -72,8 +71,8 @@ The html report generated for each file its divided in the following modules:
             :alt: *Per Sequence GC Content FASTQC module*
 
         .. danger::
-                If the GC content is not close to the normal distribution, this could indicate a contamination or a problem in the library preparation. 
-                Also, depending on the organism the GC content could vary, so if possible it's good to know the GC content of the organism of interest previoy.
+                If the GC content is not close to the normal distribution, or more than one peak is found, this could indicate a contamination or a problem in the library preparation. 
+                Also, depending on the organism the GC content could vary, so if possible it's good to know the GC content of the organism of interest previously and avoid compare it with the human modelled distribution.
 
     7. **Per Base N content**: If the sequencer is unable to determine the base in a position, it will be represented as an 'N'. This section shows the distribution of Ns in the reads.
 
@@ -82,16 +81,16 @@ The html report generated for each file its divided in the following modules:
             :align: center
             :alt: *Per Base N Content FASTQC module*
 
-    9. **Duplicate Sequences**: shows the number of duplicated sequences in the file. a high level of duplication could indicate a enrichment bias (i.e. PCR amplification). Low level of duplication may indicate a very high level of coverage of the target sequence. 
+    8. **Duplicate Sequences**: Shows the number of duplicated sequences in the file. a high level of duplication could indicate a enrichment bias (i.e. PCR amplification). Low level of duplication may indicate a very high level of coverage of the target sequence. 
     
         .. image:: images/FASTQC_report_images/Seq_duplication_levels.png
             :width: 400
             :align: center
             :alt: *Duplicate Sequences FASTQC module*
 
-    10. **Overrepresented sequences**: Show in a single sequence is very overrepresented in the file. This could indicate a contamination or a problem in the library preparation.
+    9. **Overrepresented sequences**: Show if a single sequence is very overrepresented in the file. This could indicate a contamination or a problem in the library preparation.
 
-    11. **Adapter content**: Shows the presence of adapter sequences in the reads. If  there is presence of adapters, the reads should be trimmed before further analysis. 
+    10. **Adapter content**: Shows the presence of adapter sequences in the reads. If  there is presence of adapters, the reads should be trimmed before further analysis. 
 
         .. image:: images/FASTQC_report_images/Adapter_content.png
             :width: 400
@@ -124,11 +123,11 @@ In human sequencing data the standard reference genomes to check are:
 
 Also, other sources of contaminats could be checked:
 
-    - PhiX: is a control used by Illumina to check the quality of the sequencing run (if the library is under or overloaded) 
-    - rRNA: in RNA-seq  is a good control of rRNA depletion during library preparation has not beeen amplified. 
+    - PhiX: is a control used by Illumina to check the quality of the sequencing run (if the library is under or overloaded).
+    - rRNA: in RNA-seq  is a good control of rRNA depletion during library preparation.
     - Lambda
-    - Vectors: to check that vectors used during library preprartion 
-    - Adapters 
+    - Vectors: to check that vectors used during library preprartion have not been amplified.  
+    - Adapters
 
 Example of a FASTQ-Screen report: 
 
@@ -146,22 +145,21 @@ Example of a FASTQ-Screen report:
         :align: center
         :alt: *Adapter Content FASTQC module*
 
-When working with several samples and reports theese could be aggregate in a unique report using "MULTIQC"" (https://multiqc.info/)
+When working with several samples and reports, FASTQC and FASTQ-Screen reports could be aggregate in a unique report using "MULTIQC"" (https://multiqc.info/)
 
 Pre-processing
 ---------------
 
 After the quality control, in case adapter content or low quality bases are detected,
-the reads need to be pre-processed in order to get rid of them and improve quality of the reads for further analysis.
+the reads need to be pre-processed in order to get rid of them and improve quality of the reads for further analysis (as mapping).
 
 Typical tools used for pre-processing are: 
 
-    - Trimmomatic
-    - Cutadapt, only remove the adapaters (it needs to be used in combination with sickle), requires the adapter sequence to be known.
-    - Sickle, remove low quality tail bases. 
-    - fastp
+    - Trimmomatic <http://www.usadellab.org/cms/index.php?page=trimmomatic>
+    - Cutadapt, only remove the adapaters (it needs to be used in combination with sickle), requires the adapter sequence to be known <https://cutadapt.readthedocs.io/en/stable/>
+    - Sickle, remove low quality tail bases <https://github.com/najoshi/sickle>
+    - fastp <https://github.com/OpenGene/fastp>
 
-fastp source: *https://academic.oup.com/bioinformatics/article/34/17/i884/5093234*
 
 Fastp performs in all one the following corrections:
 
@@ -177,7 +175,31 @@ Fastp performs in all one the following corrections:
 After preprocessing our reads, its important to check again the Quality. Fastp generates both htm and json report for asses the quality of our reads.
 The json reports could be aggregated with MULTIQC.
 
+*source: https://academic.oup.com/bioinformatics/article/34/17/i884/5093234*
+
+
 Example of fastp report. 
+
+- Summary:
+
+    .. image:: images/fastp_report/fastp_report_summary.png
+        :width: 400
+        :align: center
+        :alt: *Summary fastp report*
+
+- Adapters 
+
+- Insert size estimation
+
+    .. image:: images/fastp_report/insert_size_estimation.png
+        :width: 400
+        :align: center
+        :alt: * insert size estimation*
+
+
+    *source: https://doi.org/10.3389%2Ffgene.2014.00005*
+
+- Quality per base base content and kmer counting before and after filtering
 
 
 
