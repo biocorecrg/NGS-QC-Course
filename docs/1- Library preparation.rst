@@ -67,6 +67,8 @@ Check if DNA mets the quantity and quality requirements of the sequencing instru
 
 DNA library bias
 ================
+
+Depending on template, DNA-Seq can include Whole Genome Sequencing (WGS), Whole Exome Sequencing (WES),, Epigenome Sequencing (ChIP-Seq, WGBS) or Targeted Sequencing (TS). 
 Among the different library preparation steps presented earlier, several biases can be introduced during the process. 
 Here are presented the main biases introduced for DNA in each library preparation step and possible solutions to avoid them.
 
@@ -137,8 +139,7 @@ On this section are presented the main source of bias in RNA-seq, and the soluti
 		RNase H has been the best method for detecting low-qualityRNA and even could eﬀectively replace the standard RNA-seq method based on oligo (dT). 
 		For low-quantity RNA,the SMART and NuGEN approaches had lower duplication rates and signiﬁcantly decreased the necessary amount of starting material compared to other methods.
 
-2. **mRNA enrichment bias**: In eukaryotes enrich for polyadenylated RNA transcripts with oligo (dT) primers have shown that this method remove all non-poly (A) RNAs, such a reolication-dependant histones and lncRNAs (lacking of polyA),
-or incomplete mRNAs. 
+2. **mRNA enrichment bias**: In eukaryotes enrich for polyadenylated RNA transcripts with oligo (dT) primers have shown that this method remove all non-poly (A) RNAs, such a reolication-dependant histones and lncRNAs (lacking of polyA),or incomplete mRNAs. 
 
 	.. tip::
 		Targeting rRNA as depletion method will not limit to only mRNA molecules, may capture more immature transcripts, leading to a complexity increase of sequencing data (also is more expensive). 
@@ -156,12 +157,13 @@ or incomplete mRNAs.
 		Also has been proposed a bioinformatics tool in a reweighing scheme to adjust for the bias and make the distribution of the reads more uniform.
 
 5. **Adapter ligation bias**: Adapter ligation introduces a significant but widely overlooked bias in the results of NGS small RNA sequencing.
-   .. tip:: 
-   As a solution, several groups propose to randomize the 3' end of the 5'adapter and the 5'end of the 3'adapter. 
-   The strategy is based on the hypothesis that a population of degenerate adapters would average out the sequencing bias because the slightly different adapter molecules would form stable secondary structures with a more diverse population of RNAsequences		- Reverse transcription bias: reverse transcriptases tend to produce false second strand cDNA throughDNA-dependent DNA polymerase. ActinomycinD, a compound that specifically inhibits DNA-dependent DNAsynthesis, has been proposed as an agent to eliminate antisense artifacts
+   
+	.. tip:: 
+		As a solution, several groups propose to randomize the 3' end of the 5'adapter and the 5'end of the 3'adapter. 
+		The strategy is based on the hypothesis that a population of degenerate adapters would average out the sequencing bias because the slightly different adapter molecules would form stable secondary structures with a more diverse population of RNAsequences		- Reverse transcription bias: reverse transcriptases tend to produce false second strand cDNA throughDNA-dependent DNA polymerase. ActinomycinD, a compound that specifically inhibits DNA-dependent DNAsynthesis, has been proposed as an agent to eliminate antisense artifacts
 
-6. **Reverse Transcription**: A known feature of reverse transcriptases is that they tend to produce false second strand cDNA through DNA-dependent DNA polymerase.
-This may not be able to distinguish the sense and antisense transcript and create difficulties for the data analysis.
+6. **Reverse Transcription**: A known feature of reverse transcriptases is that they tend to produce false second strand cDNA through DNA-dependent DNA polymerase. This may not be able to distinguish the sense and antisense transcript and create difficulties for the data analysis.
+
 	.. tip::
 		- The deoxyuridine triphosphate (dUTP) method, one of the leading cDNA-based strategies, can be specifically removed by enzymatic digestion
 		- Another method is to synthesize the first strand of cDNA using labeled random hexamer primer and SSS using DNA-RNA template-switching primer
@@ -169,6 +171,7 @@ This may not be able to distinguish the sense and antisense transcript and creat
 7. **PCR amplification bias**: main source of artifacts and base composition bias in the process of library construction:
 
 	7.1. Extremely AT/GC-Rich: Fragments of GC-neutral can be ampliﬁed more than GC-rich or AT-rich fragments. 
+
 		.. tip::
 			- Through the use of custom adapters, the samples without ampliﬁcation and ligation can be hybridized directly with the oligonucleotides on the ﬂowcell surface, thus avoiding the biases and duplicates of PCR. 
 			- However, the ampliﬁcation-free method requires high sample input, which limits its widely used. The most eﬀective PCR enhancing additives currently used are betaine. 
@@ -178,6 +181,7 @@ This may not be able to distinguish the sense and antisense transcript and creat
 			or reducingcompounds such as β-mercaptoethanol or dithiothreitol(DTT).
 
 	7.2. PCR cyle: PCR can exponentially amplify DNA/cDNA templates, thus leading to a signiﬁcant increase of ampliﬁcation bias with the number of PCR cycles. 
+
 		.. tip:: 
 			it is recommended that PCR be performedusing as few cycle numbers as possible to mitigation bias.
 
