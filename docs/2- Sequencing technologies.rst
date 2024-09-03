@@ -121,7 +121,7 @@ For each read, the information it's divided in four lines:
     The quality scores range from 0 to 41, but the values are in ASCII (base 33) encoding in order to reduce file size. In older versions of the FASTQ format, the quality scores were encoded in ASCII (base 64) encoding.
     The higher the quality score, the lower the probability of an incorrect base call.
 
-    .. image:: images/phred_quality_score.png
+    .. image:: images/phred_scores.png
       :width: 400
       :align: center
 

@@ -14,17 +14,21 @@ Depending on the origin of our sequencing data (WGS, WES, RNA-seq, Chip-seq, ...
 Both can be used for WGS or WES data:
 
     - BWA-MEM: by default perform local aligment, high accuracy and efficiency in align reads to the entire genome. Because its very efficent for finding aligment with gaps, very important for variant detection <https://bio-bwa.sourceforge.net/bwa.shtml>.
+
     - bowtie2: by default perform global aligment, is faster than BWA but less sensitive. recommended for large-scale sequencing and frequently used for ChiP-seq due to its speed to align shorter reads and identified enriched regions (peak detection) <https://bowtie-bio.sourceforge.net/bowtie2/manual.shtml>.
 
 **RNA-seq splice-aware aligner**: Specialized in the mapping of RNA-seq reads, that can be spliced and map to different exons of the same gene:
 
     - STAR: Most popular aligner for RNA-seq data, very effcient and accurate identifying splice junctions <https://github.com/alexdobin/STAR>.
+
     - TopHat2: first aligners designed for RNA-seq data, but now is deprecated and replaced by STAR <https://ccb.jhu.edu/software/tophat/index.shtml>.
+
     - HISAT2: built on the Bowtiw2 aligment algorithm, but optimized for RNA-seq data <https://daehwankimlab.github.io/hisat2/>.
 
 **Pseudo-Aligner - Quasi-mapping**: very fast, map to transciptome and does quantitation. Can't find novel transcripts. When the goal is quantify gene expression levels, this is the best option:
 
     - Kallisto: use pseudo-aligment approach, efficiently determines the compatibility of the transcript without full sequence aligment, very fast and memory-efficient, better option for large-scale projects <https://github.com/pachterlab/kallisto>.
+    
     - Salmon: use quasi-mapping approach, similar to pseudo-aligment but includes information about the location of the read within the transcript, and perform bias correction steps, slower than kallisto but more accurate quantifications. better option for complex transcriptomes  <https://combine-lab.github.io/salmon/getting_started/>.
 
 Previous aligment of the reads, a reference genome in fasta format is needed, Typical sources to look up are UCSC, Ensembl or Gencode. An indexing of the reference genome is perfomed to create a dictionary database of the redundant sequences of the genome and facilitate and accelerate the query of the reads respect this regions, thus, minimizing the the memory footprint. 
