@@ -136,14 +136,14 @@ Example of a FASTQ-Screen report:
     .. image:: images/FASTQ-Screen/Mapping_results_tables.png
         :width: 400
         :align: center
-        :alt: *Adapter Content FASTQC module*
+        :alt: *FASTQ-Screen table report*
 
 - Mapping results tables values in a plot. 
 
-    .. image:: images/FASTQ-Screen/Mapping_results_plots.png
+    .. image:: images/FASTQ-Screen/Mapping_results_graphics.png
         :width: 400
         :align: center
-        :alt: *Adapter Content FASTQC module*
+        :alt: *FASTQ-Screen plot report*
 
 When working with several samples and reports, FASTQC and FASTQ-Screen reports could be aggregate in a unique report using "MULTIQC"" (https://multiqc.info/)
 
@@ -189,20 +189,15 @@ Example of fastp report.
 
 - Adapters: Sequence of the adapters found in the reads and the number of reads that contain them.
 
-    .. image:: images/fastp_report/adapters.png
-        :width: 400
-        :align: center
-        :alt: *Adapters fastp report*
-
 - Insert size estimation: Distribution of the insert size of the reads. Insert size correpond to the size fragment overlapped by the paired-end reads, is the fragment of DNA that is sequenced and has
 
-    .. image:: images/fastp_report/insert_size_estimation.png
+    .. image:: images/fastp_report/insert_size_explanation.png
         :width: 400
         :align: center
         :alt: * insert size estimation*
 
 
-    *source: https://doi.org/10.3389%2Ffgene.2014.00005*
+        *source: https://doi.org/10.3389%2Ffgene.2014.00005*
 
 - Quality per base, base contents and kmer counting before and after filtering
 
