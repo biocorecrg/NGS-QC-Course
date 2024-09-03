@@ -19,7 +19,7 @@ Depending on the origin of our sequencing data (WGS, WES, RNA-seq, Chip-seq, ...
     - TopHat 
     - HISAT2
 
-**Pseudo-Aligner - Quasi-mapping**: very fast, map to transciptome and does quantitation. 
+**Pseudo-Aligner - Quasi-mapping**: very fast, map to transciptome and does quantitation. Can't find novel transcripts.
     - Salmon
     - Kallisto
 
@@ -27,8 +27,6 @@ Previous aligment of the reads, a reference genome in fasta format is needed, Ty
 
 SAM format
 ----------
-
-
 
 
 BAM QC 
@@ -40,7 +38,8 @@ Most of the tools to asses Mapping Quality relies on the values of MAPQ, which i
 
 .. math::
     MAPQ = -10*log10(P)
-    Where P is the probability that the alignment is wrong.
+
+Where P is the probability that the alignment is wrong.
 
 For example, for a MAPQ value of 20 the probability that the alignment is wrong is 1 in 100 (0.01), 
 
@@ -58,8 +57,10 @@ Main Tools to asses the quality of the mapping are:
 ------------
 
 Is a CLI tool that offers Statistics of SAM/BAM files of unmapped, poorly and accuretly mapped raads. 
+
 .. seealso::
     .. _SAMStat: https://github.com/TimoLassmann/samstat
+    Check the SAMStat_ GitHub repository for more information about usage. 
 
 
 BAM format. Note, that the BAM file has to be sorted by chromosomal coordinates. Sorting can be performed with samtools sort.
@@ -78,8 +79,6 @@ Requires a sorted BAM file as input and the origin data supported are WGS, WES, 
     .. _Samtools: https://www.htslib.org/doc/samtools-sort.html
     BAM file sorting by chromosomal coordinates can be performed with samtools sort Samtools_.
 
-.. seealso::
-    .. _Qualimap: http://qualimap.bioinfo.cipf.es/
 
 Depending on the origin of our data, exist different modes for quality asses. 
 
@@ -92,4 +91,15 @@ Depending on the origin of our data, exist different modes for quality asses.
 
     - Counts QC: When working with RNA-seq data, this mode allows to asses the differential expresion betweeen two or more experimental conditions. 
 
+.. seealso::
+    .. _Qualimap: http://qualimap.bioinfo.cipf.es/
+    Check the Qualimap_ website for more information about usage.
+
+
 **Picard Tools - RNAseqMetrics**
+
+RNAseqMetrics is a tool from Picard Tools that provides a comprehensive set of metrics for RNA-seq data. 
+It can be used to assess the quality of the alignment of reads to a reference genome, the coverage of the genome, 
+the distribution of reads across the genome and helps to detect biases.
+
+**RSeQC**: Quality control of post aligment RNA-seq data, "inspect sequence quality, nuvleotide composition, PCR duplication, GC bias.

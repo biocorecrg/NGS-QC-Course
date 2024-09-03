@@ -19,6 +19,7 @@
         <script src="_static/documentation_options.js?v=5929fcd5"></script>
         <script src="_static/doctools.js?v=9a2dae69"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="author" title="About these documents" href="about.html" />
     <link rel="index" title="Index" href="genindex.html" />
@@ -93,20 +94,28 @@
 <h2>Short Reads sequencing (Illumina)<a class="headerlink" href="#short-reads-sequencing-illumina" title="Link to this heading"></a></h2>
 <p>It consist in The  polymerase-mediated Sequencing by synthesis (SBS), this works by coupling the four DNA bases to fluorescent markers alongside a terminator chemical group that pauses DNA synthesis.
 While DNA is being synthesized, each fluorescent marker is optically verified before the tag and terminator are removed, and the next step in the sequence is recorded.</p>
-<a class="reference internal image-reference" href="_images/illumina_Lu_et_al_2016.png"><img alt="*Source: https://www.researchgate.net/publication/357946568_New_approaches_and_concepts_to_study_complex_microbial_communities*" class="align-center" src="_images/illumina_Lu_et_al_2016.png" style="width: 400px;" /></a>
 <ol class="arabic simple">
-<li><p>Cluster generation</p></li>
+<li><p><strong>Cluster generation</strong></p></li>
 </ol>
 <p>Adapter attached to the DNA fragment is used to hybridisation to the flowcell, subsequentlty PCR amplification (bridge amplification) generates a cluster of the same sequence fragment to amplify the signal
 when the nucleotide base is synthesized, thus obtaining a multiple cluster on a Flow Cell.</p>
-<ol class="arabic simple" start="2">
-<li><p>Sequencing</p></li>
-</ol>
-<p>On each cycle is incorporated one nucleotide to the template, it correspond to the read length (100 cycles equal to 100 bp read length).
-In each incorportation is imaged the fluorescent signal that indicates the base incorporated, and the terminator is removed to start the next cycle.</p>
-<p>During Library preparation adapters are added to the DNA fragments, which are used to hybridize the DNA to the flow cell, and also act as barcaodes to identify the sample, when multiples samples are pooled in the same run.
+<p>During Library preparation adapters are added to the DNA fragments, which are used to hybridize the DNA to the flow cell, and also act as barcaodes or index (a short unique sequence) that identify the sample, when multiples samples are pooled in a single run.
 Depending on the type of sequencing, the adapater can be added to one end of the fragment (single end) or both ends (paired end).</p>
 <a class="reference internal image-reference" href="_images/single_vs_pair_end.png"><img alt="_images/single_vs_pair_end.png" class="align-center" src="_images/single_vs_pair_end.png" style="width: 400px;" /></a>
+<ol class="arabic simple" start="2">
+<li><p><strong>Sequencing</strong></p></li>
+</ol>
+<p>On each cycle is incorporated one nucleotide to the template, it correspond to the read length (100 cycles equal to 100 bp read length).
+A single fluorescently labeled reversible terminator-bound dNTP is incorporated into the nucleic acid chain during each sequencing cycle, and the resulting fluorescent signal is imaged.
+The terminator and fluorescent dye are cleaved from the incorporated dNTP to allow the next labeled dNTP to be added</p>
+<a class="reference internal image-reference" href="_images/illumina_Lu_et_al_2016.png"><img alt="*Source: https://www.researchgate.net/publication/357946568_New_approaches_and_concepts_to_study_complex_microbial_communities*" class="align-center" src="_images/illumina_Lu_et_al_2016.png" style="width: 400px;" /></a>
+<p><em>https://www.researchgate.net/publication/357946568_New_approaches_and_concepts_to_study_complex_microbial_communities</em></p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<blockquote>
+<div><p>See the <a class="reference external" href="https://www.youtube.com/watch?v=fCd6B5HRaZ8">Illumina_sequencing_by_synthesis_workflow</a> video by Illumina to visualize the concepts of SBS.</p>
+</div></blockquote>
+</div>
 <section id="single-end">
 <h3>Single end<a class="headerlink" href="#single-end" title="Link to this heading"></a></h3>
 <p>Correspond to the basis of SBS, where the nucleotides added to the template sequence is read from one end of the fragment.
@@ -120,54 +129,68 @@ However, the quality of nucleotides decreases as the sequencing process progress
 then starts another round of reading from the opposite end of the fragment. Thus obtaining two reads for each fragment.</p>
 <p>It improves:</p>
 <ul class="simple">
-<li><p>The confidence of the sequence read</p></li>
+<li><p>The confidence of the sequence read (error rate of 0.1%)</p></li>
 <li><p>The ability to identify the relative positions of various reads in the genome (much more efficient in resolve rearrangements such as insertions, deletions or inversions)</p></li>
 <li><p>Can improve the assembly of repetitive regions.</p></li>
 <li><p>On the ohter hand is more expensive and time-consuming (respect single end)</p></li>
 </ul>
-<div class="admonition seealso">
-<p class="admonition-title">See also</p>
-<blockquote>
-<div><p>See the <a class="reference external" href="https://www.youtube.com/watch?v=fCd6B5HRaZ8">Illumina_sequencing_by_synthesis_workflow</a> video by Illumina to visualize the concepts of SBS.</p>
-</div></blockquote>
-</div>
-<p>For</p>
 </section>
 </section>
 <section id="long-read-sequencing-nanopore">
 <h2>Long read sequencing (Nanopore)<a class="headerlink" href="#long-read-sequencing-nanopore" title="Link to this heading"></a></h2>
-<p>Use flow cells which contain an array of tiny holes — nanopores (protein pore) — embedded in an electro-resistant membrane. Each nanopore corresponds to its own electrode connected
-to a channel and sensor chip, which measures the electric current that flows through the nanopore. When a molecule passes through a nanopore, the current is disrupted
-to produce a characteristic ‘squiggle’. The squiggle is then decoded using basecalling algorithms to determine the DNA or RNA sequence in real time.
+<p>Use flow cells which contain an array of tiny holes nanopores (protein pore) embedded in an electro-resistant membrane.
+Each nanopore corresponds to its own electrode connected to a channel and sensor chip, which measures the electric current that flows through the nanopore.
+When a molecule passes through a nanopore, the current is disrupted to produce a characteristic ‘squiggle’. The squiggle is then decoded using basecalling algorithms to determine the DNA or RNA sequence in real time.
 In an electrolytic solution, a constant voltage is applied to produce an ionic current through the nanopore such that negatively charged single-stranded DNA or RNA molecules
-are driven through the nanopore from the negatively charged ‘cis’ side to the positively charged ‘trans’ side. Translocation speed is controlled by a motor protein that ratchets
-the nucleic acid molecule through the nanopore in a step-wise manner. Changes in the ionic current during translocation correspond to the nucleotide sequence present in the sensing
-region and are decoded using computational algorithms, allowing real-time sequencing of single molecules.  In addition to controlling translocation speed, the motor protein has helicase activity,
-enabling double-stranded DNA or RNA–DNA duplexes to be unwound into single-stranded molecules that pass through the nanopore.</p>
+are driven through the nanopore from the negatively charged ‘cis’ side to the positively charged ‘trans’ side.</p>
+<p>Translocation speed is controlled by a motor protein that ratchets the nucleic acid molecule through the nanopore in a step-wise manner.
+Changes in the ionic current during translocation correspond to the nucleotide sequence present in the sensing region and are decoded using computational algorithms, allowing real-time sequencing of single molecules.
+In addition to controlling translocation speed, the motor protein has helicase activity, enabling double-stranded DNA or RNA–DNA duplexes to be unwound into single-stranded molecules that pass through the nanopore.</p>
 <a class="reference internal image-reference" href="_images/Nanopore_principle.png"><img alt="_images/Nanopore_principle.png" class="align-center" src="_images/Nanopore_principle.png" style="width: 400px;" /></a>
 <p>A basecaller translates raw signals into DNA sequence data (FASTQ). The basecaller uses a neural network to predict the most likely DNA sequence based on the raw signal data.</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <p>See the <a class="reference external" href="https://www.youtube.com/watch?v=RcP85JHLmnI">Nanopore_sequencing_workflow</a> video by Oxford Nanopore Technologies to visualize the concepts of Nanopore sequencing.</p>
 </div>
+<p><em>Source: https://doi.org/10.1038/s41587-021-01108-x</em></p>
 </section>
 <section id="fastq-format-and-phred-quality-score">
 <h2>FASTQ format and Phred quality score<a class="headerlink" href="#fastq-format-and-phred-quality-score" title="Link to this heading"></a></h2>
-<p>The raw data generated by the sequencer is stored in FASTQ format, which contains the sequence of nucleotides and their corresponding quality scores.
-It it’s divided in four lines:</p>
+<p>The raw data generated by the sequencer is stored in FASTQ format, which contains the sequence of nucleotides and their corresponding quality scores (phred scores).
+For Illumina Paired end sequencing, two FASTQ files are generated, one for each read direction.</p>
+<a class="reference internal image-reference" href="_images/fastq_format.png"><img alt="_images/fastq_format.png" class="align-center" src="_images/fastq_format.png" style="width: 400px;" /></a>
+<p>For each read, the information it’s divided in four lines:</p>
 <blockquote>
+<div><blockquote>
+<div><blockquote>
 <div><ol class="arabic simple">
 <li><p>Sequence identifier: starts with ‘&#64;’ and contains information about the read. Such as the instrument, run ID, flow cell ID, lane, tile, x, y coordinates, and read number.</p></li>
-<li><p>Sequence: the nucleotide sequence of the read.</p></li>
-<li><p>Quality identifier: starts with ‘+’ and contains the same information as the sequence identifier. Or it may be empty and in some cases is used for metadata.</p></li>
-<li><p>Quality scores: the Phred quality score for each base in the read. The Phred quality score is a measure of the quality of the base call, which is calculated as -10 * log10(P), where P is the probability of the base call being incorrect. The quality score is represented as an ASCII character, with a score of 0 represented by ‘!’, and a score of 41 represented by ‘J’. The higher the quality score, the more confident we are in the base call.</p></li>
 </ol>
 </div></blockquote>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The &#64; symbol can not be used for count the number of reads, because it could also appear as a quality score symbol.</p>
 </div>
-<a class="reference internal image-reference" href="_images/fastq_format.png"><img alt="_images/fastq_format.png" class="align-center" src="_images/fastq_format.png" style="width: 400px;" /></a>
+</div></blockquote>
+<ol class="arabic simple" start="2">
+<li><dl class="simple">
+<dt>Sequence: the nucleotide sequence of the read.</dt><dd><ol class="arabic simple" start="3">
+<li><p>Quality identifier: starts with ‘+’ and contains the same information as the sequence identifier. Or it may be empty and in some cases is used for metadata.</p></li>
+<li><p>Quality scores: the Phred quality score for each base in the read. The Phred quality score is a measure of the quality of the base call,</p></li>
+</ol>
+</dd>
+</dl>
+</li>
+</ol>
+<blockquote>
+<div><div class="math notranslate nohighlight">
+\[Q = -10 * log10(P)\]</div>
+<p>Where P is the probability of the base call being incorrect.
+The quality scores range from 0 to 41, but the values are in ASCII (base 33) encoding in order to reduce file size. In older versions of the FASTQ format, the quality scores were encoded in ASCII (base 64) encoding.
+The higher the quality score, the lower the probability of an incorrect base call.</p>
+<a class="reference internal image-reference" href="images/phred_quality_score.png"><img alt="images/phred_quality_score.png" class="align-center" src="images/phred_quality_score.png" style="width: 400px;" /></a>
+</div></blockquote>
+</div></blockquote>
 </section>
 </section>
 

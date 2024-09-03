@@ -51,9 +51,10 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">1 Library preparation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#main-causes-of-poor-quality-data">Main Causes of poor quality data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id1">Library preparation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#library-preparation-bias">Library preparation bias</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#dna-library-bias">DNA library bias</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#rna-library-bias">RNA library bias</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dna-library-bias">DNA library bias</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rna-library-bias">RNA library bias</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#sample-preservation-and-isolation"><strong>Sample Preservation and Isolation</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#library-construction"><strong>Library Construction</strong></a></li>
 </ul>
 </li>
 </ul>
@@ -146,13 +147,10 @@ and more readily enable specific applications (like Whole Genome Sequencing and 
 </ul>
 </div>
 </section>
-<section id="library-preparation-bias">
-<h2>Library preparation bias<a class="headerlink" href="#library-preparation-bias" title="Link to this heading"></a></h2>
-<p>Among the different library preparation steps presented earlier, several biases can be introduced during the process.
-Here are presented the main biases introduced for DNA and RNA, in each library preparation step and possible solutions to avoid them.</p>
 <section id="dna-library-bias">
-<h3>DNA library bias<a class="headerlink" href="#dna-library-bias" title="Link to this heading"></a></h3>
-<p>Here are presented the the different steps of the DNA library preparation that have been implicated in bias introduction:</p>
+<h2>DNA library bias<a class="headerlink" href="#dna-library-bias" title="Link to this heading"></a></h2>
+<p>Among the different library preparation steps presented earlier, several biases can be introduced during the process.
+Here are presented the main biases introduced for DNA in each library preparation step and possible solutions to avoid them.</p>
 <a class="reference internal image-reference" href="_images/library_prep_explanation_Van_Djik_2014.jpg"><img alt="*source: https://doi.org/10.1016/j.yexcr.2014.01.008*" class="align-center" src="_images/library_prep_explanation_Van_Djik_2014.jpg" style="width: 400px;" /></a>
 <ul class="simple">
 <li><p><strong>Fragmentation</strong></p></li>
@@ -178,52 +176,56 @@ GC-neutral fragments are amplified more efficiently than GC-rich or AT-rich frag
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <ul class="simple">
-<li><p>Ligate adapters that contain all necessary elements for bridge amplification on Illumina flowcells are preferred, eliminating the need for PCR to add these sequences afterwards.</p></li>
+<li><p>Ligate adapters that contain all necessary elements for bridge amplification on Illumina flowcells are preferred, eliminating the need for PCR to add these sequences afterwards. Nevertheless, requires relatively large quantities (41 mg) of input material.</p></li>
+<li><p>In the extreme case of small input amount, the single cell,multiple displacement amplification (MDA) may be the preferred amplification method. MDA is an extremely powerful amplification method, allowing microgram quantities of DNA to be obtained from femtograms of starting material. For this reason, MDA has become the method of choice for whole genome amplification (WGA) from single cells</p></li>
+<li><p>PCR additives have also been reported to reduce bias, such as betaine or tetramethylammonium chloride (TMAC) may help to further improve coverage of extremely GC-rich or AT-rich regions.</p></li>
+<li><p>The best overall performing polymerase appears to be Kapa HiFi.</p></li>
 </ul>
-<p>Nevertheless, requires relatively large quantities (41 mg) of input material.
-- In the extreme case of small input amount, the single cell,multiple displacement amplification (MDA) may be the preferred amplification method.
-MDA is an extremely powerful amplification method, allowing microgram quantities of DNA to be obtained from femtograms of starting material.
-For this reason, MDA has become the method of choice for whole genome amplification (WGA) from single cells
-- PCR additives have also been reported to reduce bias, such as betaine or tetramethylammonium chloride (TMAC) may help to further improve coverage of extremely GC-rich or AT-rich regions.
-- The best overall performing polymerase appears to be Kapa HiFi.</p>
 </div>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p>For more information see the publication <a class="reference external" href="http://dx.doi.org/10.1016/j.yexcr.2014.01.008">Library preparation methods for next generation sequencing Tone down the bias</a>.</p>
+<p>For more information see the publication <a class="reference external" href="http://dx.doi.org/10.1016/j.yexcr.2014.01.008">Library preparation methods for next generation sequencing: Tone down the bias</a>.</p>
 </div>
 </section>
 <section id="rna-library-bias">
-<h3>RNA library bias<a class="headerlink" href="#rna-library-bias" title="Link to this heading"></a></h3>
+<h2>RNA library bias<a class="headerlink" href="#rna-library-bias" title="Link to this heading"></a></h2>
 <p>On this section are presented the main source of bias in RNA-seq, and the solutions that could be implemented to reduce it.</p>
 <a class="reference internal image-reference" href="_images/protocol_RNA-seq_library_bias_vanDjik_etal_2014.png"><img alt="*source: https://doi.org/10.1016/j.yexcr.2014.01.008*" class="align-center" src="_images/protocol_RNA-seq_library_bias_vanDjik_etal_2014.png" style="width: 400px;" /></a>
-<ul class="simple">
-<li><p><strong>Sample Preservation and Isolation</strong></p></li>
-</ul>
-<p>1. Degradation of RNA:
-.. tip:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Minimizing</span> <span class="n">the</span> <span class="n">sample</span> <span class="n">processing</span> <span class="ow">and</span> <span class="n">freezing</span> <span class="ow">and</span> <span class="n">thawing</span> <span class="n">cycles</span><span class="p">,</span> <span class="n">ensures</span> <span class="n">that</span> <span class="n">RNA</span> <span class="ow">is</span> <span class="n">preserved</span> <span class="k">as</span> <span class="n">best</span> <span class="k">as</span> <span class="n">possible</span><span class="o">.</span>
-</pre></div>
-</div>
-<p>2. RNA extraction:
-.. tip:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">If</span> <span class="n">possible</span> <span class="n">use</span> <span class="n">high</span> <span class="n">concentrations</span> <span class="n">of</span> <span class="n">RNA</span> <span class="n">samples</span> <span class="ow">or</span> <span class="n">avoid</span> <span class="n">TRIzol</span> <span class="n">extraction</span> <span class="n">altogether</span><span class="o">.</span>
-</pre></div>
-</div>
-<ul class="simple">
-<li><p><strong>Library Construction</strong></p></li>
-</ul>
+<section id="sample-preservation-and-isolation">
+<h3><strong>Sample Preservation and Isolation</strong><a class="headerlink" href="#sample-preservation-and-isolation" title="Link to this heading"></a></h3>
 <ol class="arabic">
-<li><dl>
-<dt>Low-quality and/or low-quantity RNA samples:</dt><dd><div class="admonition tip">
+<li><p>Degradation of RNA:</p>
+<blockquote>
+<div><div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Minimizing the sample processing and freezing and thawing cycles, ensures that RNA is preserved as best as possible.</p>
+</div>
+</div></blockquote>
+</li>
+<li><p>RNA extraction:</p>
+<blockquote>
+<div><div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If possible use high concentrations of RNA samples or avoid TRIzol extraction altogether.</p>
+</div>
+</div></blockquote>
+</li>
+</ol>
+</section>
+<section id="library-construction">
+<h3><strong>Library Construction</strong><a class="headerlink" href="#library-construction" title="Link to this heading"></a></h3>
+<ol class="arabic">
+<li><p><strong>Low-quality and/or low-quantity RNA samples</strong>:</p>
+<blockquote>
+<div><div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>RNase H has been the best method for detecting low-qualityRNA and even could eﬀectively replace the standard RNA-seq method based on oligo (dT).
 For low-quantity RNA,the SMART and NuGEN approaches had lower duplication rates and signiﬁcantly decreased the necessary amount of starting material compared to other methods.</p>
 </div>
-</dd>
-</dl>
+</div></blockquote>
 </li>
 </ol>
-<p>2. mRNA enrichment bias: In eukaryotes enrich for polyadenylated RNA transcripts with oligo (dT) primers have shown that this method remove all non-poly (A) RNAs, such a reolication-dependant histones and lncRNAs (lacking of polyA),
+<p>2. <strong>mRNA enrichment bias</strong>: In eukaryotes enrich for polyadenylated RNA transcripts with oligo (dT) primers have shown that this method remove all non-poly (A) RNAs, such a reolication-dependant histones and lncRNAs (lacking of polyA),
 or incomplete mRNAs.</p>
 <blockquote>
 <div><div class="admonition tip">
@@ -233,29 +235,29 @@ Subtractive hybridization using rRNA-specific probes as the method that introduc
 </div>
 </div></blockquote>
 <ol class="arabic" start="3">
-<li><dl>
-<dt>RNA fragmentation bias: There are two major approaches of RNA fragmentation: chemical (using metal ions) and enzymatic (using RNase III). During this process could be introduced lenght biases or errors (propagated to later cycles).</dt><dd><div class="admonition tip">
+<li><p><strong>RNA fragmentation bias</strong>: There are two major approaches of RNA fragmentation: chemical (using metal ions) and enzymatic (using RNase III). During this process could be introduced lenght biases or errors (propagated to later cycles).</p>
+<blockquote>
+<div><div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Studies have shown that methods that involve non speciﬁc restriction endonucleases indicate less sequence bias and have been shown to perform similarly to the physical methods. Also enzymatic methoda are easy to automate</p>
 </div>
-</dd>
-</dl>
+</div></blockquote>
 </li>
-<li><dl>
-<dt>Primer bias: During reverse transcription into cDNA by random hexamers can lead to deviation of nucleotide content of RNA sequencing reads, resulting in low complexity of RNA sequencing data.</dt><dd><div class="admonition tip">
+<li><p><strong>Primer bias</strong>: During reverse transcription into cDNA by random hexamers can lead to deviation of nucleotide content of RNA sequencing reads, resulting in low complexity of RNA sequencing data.</p>
+<blockquote>
+<div><div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Could be avoid using the Illumina Genome Analyzer, which perform the reverse transcription directly on the flowcells, avoiding the PCR.
 Also has been proposed a bioinformatics tool in a reweighing scheme to adjust for the bias and make the distribution of the reads more uniform.</p>
 </div>
-</dd>
-</dl>
+</div></blockquote>
 </li>
-<li><p>Adapter ligation bias: Adapter ligation introduces a significant but widely overlooked bias in the results of NGS small RNA sequencing.
+<li><p><strong>Adapter ligation bias</strong>: Adapter ligation introduces a significant but widely overlooked bias in the results of NGS small RNA sequencing.
 .. tip::
 As a solution, several groups propose to randomize the 3’ end of the 5’adapter and the 5’end of the 3’adapter.
 The strategy is based on the hypothesis that a population of degenerate adapters would average out the sequencing bias because the slightly different adapter molecules would form stable secondary structures with a more diverse population of RNAsequences                - Reverse transcription bias: reverse transcriptases tend to produce false second strand cDNA throughDNA-dependent DNA polymerase. ActinomycinD, a compound that specifically inhibits DNA-dependent DNAsynthesis, has been proposed as an agent to eliminate antisense artifacts</p></li>
 </ol>
-<p>6. Reverse Transcription: A known feature of reverse transcriptases is that they tend to produce false second strand cDNA through DNA-dependent DNA polymerase.
+<p>6. <strong>Reverse Transcription</strong>: A known feature of reverse transcriptases is that they tend to produce false second strand cDNA through DNA-dependent DNA polymerase.
 This may not be able to distinguish the sense and antisense transcript and create difficulties for the data analysis.</p>
 <blockquote>
 <div><div class="admonition tip">
@@ -267,7 +269,7 @@ This may not be able to distinguish the sense and antisense transcript and creat
 </div>
 </div></blockquote>
 <ol class="arabic" start="7">
-<li><p>PCR amplification bias: main source of artifacts and base composition bias in the process of library construction:</p>
+<li><p><strong>PCR amplification bias</strong>: main source of artifacts and base composition bias in the process of library construction:</p>
 <blockquote>
 <div><dl>
 <dt>7.1. Extremely AT/GC-Rich: Fragments of GC-neutral can be ampliﬁed more than GC-rich or AT-rich fragments.</dt><dd><div class="admonition tip">

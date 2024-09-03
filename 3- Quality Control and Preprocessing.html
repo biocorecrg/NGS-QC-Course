@@ -95,7 +95,7 @@
 <h2>Illumina<a class="headerlink" href="#illumina" title="Link to this heading"></a></h2>
 <section id="quality-control">
 <h3>Quality Control<a class="headerlink" href="#quality-control" title="Link to this heading"></a></h3>
-<p>After sequencing, Quality control of the reads contained in the fastq files needs to be check, in order to determine
+<p>After sequencing, Quality control of the reads contained in the FASTQ files needs to be check, in order to determine
 if the reads could be used for further analysis. the main tools used for QC in Illumina reads are FASTQC and FASTQ-Screen.</p>
 <section id="fastqc">
 <h4>FASTQC<a class="headerlink" href="#fastqc" title="Link to this heading"></a></h4>
@@ -112,43 +112,42 @@ the extensions supported are:</p>
 <li><p>SAM/BAM Mapped only (normally used for colorspace data)</p></li>
 </ul>
 </div></blockquote>
-<p>The html report generated for each file its divided in the following modules:</p>
+<p>It is available for usage by CLI and GUI. It generates a html report for each file and its divided in the following Quality metrics modules:</p>
 <blockquote>
 <div><ol class="arabic simple">
-<li><p><strong>Basic Statistics</strong>: display the information related with the file, number and leght of the sequences, and overall %GC.</p></li>
+<li><p><strong>Basic Statistics</strong>: Display the information related with the file, number and lenght of the sequences, and overall %GC.</p></li>
 </ol>
-<p>2. <strong>Per base sequence quality</strong>: shows how the quality score (y axis) varys throughout the sequence reads (x axis).
+<p>2. <strong>Per base sequence quality</strong>: Shows how the quality score (y axis) varys throughout the sequence reads (x axis).
 For each position a BoxWhisker is displayed, the red line represents the median and the blue the mean.
 Commonly the quality score tend to decrease at the end of the reads, because the polymerase tends to make more mistakes as the read progresses.</p>
 <blockquote>
-<div><p>is the median os any base is less than 25 a warning will arise.</p>
-<a class="reference internal image-reference" href="_images/Per_base_seq_quality.png"><img alt="*Per Base Sequence Quality FASTQC module*" class="align-center" src="_images/Per_base_seq_quality.png" style="width: 400px;" /></a>
+<div><a class="reference internal image-reference" href="_images/Per_base_seq_quality.png"><img alt="*Per Base Sequence Quality FASTQC module*" class="align-center" src="_images/Per_base_seq_quality.png" style="width: 400px;" /></a>
 </div></blockquote>
 <ol class="arabic" start="3">
-<li><p><strong>Per tile sequence quality</strong>: shows the quality score distribution for each tile in the flowcell.</p>
+<li><p><strong>Per tile sequence quality</strong>: Shows the quality score distribution for each tile in the flowcell.</p>
 <blockquote>
 <div><a class="reference internal image-reference" href="_images/Per_tile_seq_quality.png"><img alt="*Per Tile Sequence Quality FASTQC module*" class="align-center" src="_images/Per_tile_seq_quality.png" style="width: 400px;" /></a>
 </div></blockquote>
 </li>
 </ol>
-<p>4. <strong>Per sequence quality score</strong>: shows the distribution of the quality scores for all the reads in the file.
+<p>4. <strong>Per sequence quality score</strong>: Shows the distribution of the quality scores for all the reads in the file.
 If a huge amount of reads subset have a poor average quality this could indicate a systematic problem.</p>
 <blockquote>
 <div><a class="reference internal image-reference" href="_images/Per_seq_quality_scores.png"><img alt="*Per Sequence Quality FASTQC module*" class="align-center" src="_images/Per_seq_quality_scores.png" style="width: 400px;" /></a>
 </div></blockquote>
-<p>5. <strong>Per base sequence content</strong>: proportion of each base position for the four nucleotides.
+<p>5. <strong>Per base sequence content</strong>: Proportion of each base position for the four nucleotides.
 A strong bias in the nucleotide composition could indicate a problem in the library preparation.</p>
 <blockquote>
 <div><a class="reference internal image-reference" href="_images/Per_base_seq_content.png"><img alt="*Per Base Sequence Content FASTQC module*" class="align-center" src="_images/Per_base_seq_content.png" style="width: 400px;" /></a>
 </div></blockquote>
 <ol class="arabic" start="6">
-<li><p><strong>Per sequence GC content</strong>:  GC content distribution for all the reads in the file, and compared to a modelled normal distribution of human GC content.</p>
+<li><p><strong>Per sequence GC content</strong>:  GC content distribution for all the reads in the file, and compared to a modelled normal distribution of human GC content (blue line).</p>
 <blockquote>
 <div><a class="reference internal image-reference" href="_images/Per_seq_GC_content.png"><img alt="*Per Sequence GC Content FASTQC module*" class="align-center" src="_images/Per_seq_GC_content.png" style="width: 400px;" /></a>
 <div class="admonition danger">
 <p class="admonition-title">Danger</p>
-<p>If the GC content is not close to the normal distribution, this could indicate a contamination or a problem in the library preparation.
-Also, depending on the organism the GC content could vary, so if possible it’s good to know the GC content of the organism of interest previoy.</p>
+<p>If the GC content is not close to the normal distribution, or more than one peak is found, this could indicate a contamination or a problem in the library preparation.
+Also, depending on the organism the GC content could vary, so if possible it’s good to know the GC content of the organism of interest previously and avoid compare it with the human modelled distribution.</p>
 </div>
 </div></blockquote>
 </li>
@@ -157,14 +156,12 @@ Also, depending on the organism the GC content could vary, so if possible it’s
 <div><a class="reference internal image-reference" href="_images/Per_base_N_content.png"><img alt="*Per Base N Content FASTQC module*" class="align-center" src="_images/Per_base_N_content.png" style="width: 400px;" /></a>
 </div></blockquote>
 </li>
-</ol>
-<ol class="arabic" start="9">
-<li><p><strong>Duplicate Sequences</strong>: shows the number of duplicated sequences in the file. a high level of duplication could indicate a enrichment bias (i.e. PCR amplification). Low level of duplication may indicate a very high level of coverage of the target sequence.</p>
+<li><p><strong>Duplicate Sequences</strong>: Shows the number of duplicated sequences in the file. a high level of duplication could indicate a enrichment bias (i.e. PCR amplification). Low level of duplication may indicate a very high level of coverage of the target sequence.</p>
 <blockquote>
 <div><a class="reference internal image-reference" href="_images/Seq_duplication_levels.png"><img alt="*Duplicate Sequences FASTQC module*" class="align-center" src="_images/Seq_duplication_levels.png" style="width: 400px;" /></a>
 </div></blockquote>
 </li>
-<li><p><strong>Overrepresented sequences</strong>: Show in a single sequence is very overrepresented in the file. This could indicate a contamination or a problem in the library preparation.</p></li>
+<li><p><strong>Overrepresented sequences</strong>: Show if a single sequence is very overrepresented in the file. This could indicate a contamination or a problem in the library preparation.</p></li>
 <li><p><strong>Adapter content</strong>: Shows the presence of adapter sequences in the reads. If  there is presence of adapters, the reads should be trimmed before further analysis.</p>
 <a class="reference internal image-reference" href="_images/Adapter_content.png"><img alt="*Adapter Content FASTQC module*" class="align-center" src="_images/Adapter_content.png" style="width: 400px;" /></a>
 </li>
@@ -196,10 +193,10 @@ In human sequencing data the standard reference genomes to check are:</p>
 <p>Also, other sources of contaminats could be checked:</p>
 <blockquote>
 <div><ul class="simple">
-<li><p>PhiX: is a control used by Illumina to check the quality of the sequencing run (if the library is under or overloaded)</p></li>
-<li><p>rRNA: in RNA-seq  is a good control of rRNA depletion during library preparation has not beeen amplified.</p></li>
+<li><p>PhiX: is a control used by Illumina to check the quality of the sequencing run (if the library is under or overloaded).</p></li>
+<li><p>rRNA: in RNA-seq  is a good control of rRNA depletion during library preparation.</p></li>
 <li><p>Lambda</p></li>
-<li><p>Vectors: to check that vectors used during library preprartion</p></li>
+<li><p>Vectors: to check that vectors used during library preprartion have not been amplified.</p></li>
 <li><p>Adapters</p></li>
 </ul>
 </div></blockquote>
@@ -216,23 +213,22 @@ In human sequencing data the standard reference genomes to check are:</p>
 </div></blockquote>
 </li>
 </ul>
-<p>When working with several samples and reports theese could be aggregate in a unique report using “MULTIQC”” (<a class="reference external" href="https://multiqc.info/">https://multiqc.info/</a>)</p>
+<p>When working with several samples and reports, FASTQC and FASTQ-Screen reports could be aggregate in a unique report using “MULTIQC”” (<a class="reference external" href="https://multiqc.info/">https://multiqc.info/</a>)</p>
 </section>
 </section>
 <section id="pre-processing">
 <h3>Pre-processing<a class="headerlink" href="#pre-processing" title="Link to this heading"></a></h3>
 <p>After the quality control, in case adapter content or low quality bases are detected,
-the reads need to be pre-processed in order to get rid of them and improve quality of the reads for further analysis.</p>
+the reads need to be pre-processed in order to get rid of them and improve quality of the reads for further analysis (as mapping).</p>
 <p>Typical tools used for pre-processing are:</p>
 <blockquote>
 <div><ul class="simple">
-<li><p>Trimmomatic</p></li>
-<li><p>Cutadapt, only remove the adapaters (it needs to be used in combination with sickle), requires the adapter sequence to be known.</p></li>
-<li><p>Sickle, remove low quality tail bases.</p></li>
-<li><p>fastp</p></li>
+<li><p>Trimmomatic &lt;<a class="reference external" href="http://www.usadellab.org/cms/index.php?page=trimmomatic">http://www.usadellab.org/cms/index.php?page=trimmomatic</a>&gt;</p></li>
+<li><p>Cutadapt, only remove the adapaters (it needs to be used in combination with sickle), requires the adapter sequence to be known &lt;<a class="reference external" href="https://cutadapt.readthedocs.io/en/stable/">https://cutadapt.readthedocs.io/en/stable/</a>&gt;</p></li>
+<li><p>Sickle, remove low quality tail bases &lt;<a class="reference external" href="https://github.com/najoshi/sickle">https://github.com/najoshi/sickle</a>&gt;</p></li>
+<li><p>fastp &lt;<a class="reference external" href="https://github.com/OpenGene/fastp">https://github.com/OpenGene/fastp</a>&gt;</p></li>
 </ul>
 </div></blockquote>
-<p>fastp source: <em>https://academic.oup.com/bioinformatics/article/34/17/i884/5093234</em></p>
 <p>Fastp performs in all one the following corrections:</p>
 <ul class="simple">
 <li><p>Adapter removal: in paired-end data, fastp seeks the overlap of each pair and considers the bases that fall out of the</p></li>
@@ -250,7 +246,23 @@ If the average quality is lower than a given threshold, then the bases in the wi
 </ul>
 <p>After preprocessing our reads, its important to check again the Quality. Fastp generates both htm and json report for asses the quality of our reads.
 The json reports could be aggregated with MULTIQC.</p>
+<p><em>source: https://academic.oup.com/bioinformatics/article/34/17/i884/5093234</em></p>
 <p>Example of fastp report.</p>
+<ul>
+<li><p>Summary:</p>
+<blockquote>
+<div><a class="reference internal image-reference" href="_images/fastp_report_summary.png"><img alt="*Summary fastp report*" class="align-center" src="_images/fastp_report_summary.png" style="width: 400px;" /></a>
+</div></blockquote>
+</li>
+<li><p>Adapters</p></li>
+<li><p>Insert size estimation</p>
+<blockquote>
+<div><a class="reference internal image-reference" href="images/fastp_report/insert_size_estimation.png"><img alt="* insert size estimation*" class="align-center" src="images/fastp_report/insert_size_estimation.png" style="width: 400px;" /></a>
+<p><em>source: https://doi.org/10.3389%2Ffgene.2014.00005</em></p>
+</div></blockquote>
+</li>
+<li><p>Quality per base base content and kmer counting before and after filtering</p></li>
+</ul>
 </section>
 </section>
 </section>
