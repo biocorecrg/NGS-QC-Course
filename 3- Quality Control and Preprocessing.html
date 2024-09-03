@@ -249,19 +249,23 @@ The json reports could be aggregated with MULTIQC.</p>
 <p><em>source: https://academic.oup.com/bioinformatics/article/34/17/i884/5093234</em></p>
 <p>Example of fastp report.</p>
 <ul>
-<li><p>Summary:</p>
+<li><p>Summary: General information about the reads, number of reads after filtering, number of bases avobe phred score 20 and 30, and number of reads that passed the filter, with low quality, too many N and too short.</p>
 <blockquote>
 <div><a class="reference internal image-reference" href="_images/fastp_report_summary.png"><img alt="*Summary fastp report*" class="align-center" src="_images/fastp_report_summary.png" style="width: 400px;" /></a>
 </div></blockquote>
 </li>
-<li><p>Adapters</p></li>
-<li><p>Insert size estimation</p>
+<li><p>Adapters: Sequence of the adapters found in the reads and the number of reads that contain them.</p>
+<blockquote>
+<div><a class="reference internal image-reference" href="images/fastp_report/adapters.png"><img alt="*Adapters fastp report*" class="align-center" src="images/fastp_report/adapters.png" style="width: 400px;" /></a>
+</div></blockquote>
+</li>
+<li><p>Insert size estimation: Distribution of the insert size of the reads. Insert size correpond to the size fragment overlapped by the paired-end reads, is the fragment of DNA that is sequenced and has</p>
 <blockquote>
 <div><a class="reference internal image-reference" href="images/fastp_report/insert_size_estimation.png"><img alt="* insert size estimation*" class="align-center" src="images/fastp_report/insert_size_estimation.png" style="width: 400px;" /></a>
 <p><em>source: https://doi.org/10.3389%2Ffgene.2014.00005</em></p>
 </div></blockquote>
 </li>
-<li><p>Quality per base base content and kmer counting before and after filtering</p></li>
+<li><p>Quality per base, base contents and kmer counting before and after filtering</p></li>
 </ul>
 </section>
 </section>

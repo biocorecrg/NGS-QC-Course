@@ -180,16 +180,21 @@ The json reports could be aggregated with MULTIQC.
 
 Example of fastp report. 
 
-- Summary:
+- Summary: General information about the reads, number of reads after filtering, number of bases avobe phred score 20 and 30, and number of reads that passed the filter, with low quality, too many N and too short. 
 
     .. image:: images/fastp_report/fastp_report_summary.png
         :width: 400
         :align: center
         :alt: *Summary fastp report*
 
-- Adapters 
+- Adapters: Sequence of the adapters found in the reads and the number of reads that contain them.
 
-- Insert size estimation
+    .. image:: images/fastp_report/adapters.png
+        :width: 400
+        :align: center
+        :alt: *Adapters fastp report*
+
+- Insert size estimation: Distribution of the insert size of the reads. Insert size correpond to the size fragment overlapped by the paired-end reads, is the fragment of DNA that is sequenced and has
 
     .. image:: images/fastp_report/insert_size_estimation.png
         :width: 400
@@ -199,7 +204,7 @@ Example of fastp report.
 
     *source: https://doi.org/10.3389%2Ffgene.2014.00005*
 
-- Quality per base base content and kmer counting before and after filtering
+- Quality per base, base contents and kmer counting before and after filtering
 
 
 
