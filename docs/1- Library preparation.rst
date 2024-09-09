@@ -35,9 +35,6 @@ Template Preparation
 		Preparation of genomic samples for WGBS is commonly performed through the post-bisulfite treatment of DNA and de-tagging before index adaptor ligation for NGS sequencing . ChIP-Seq allows for genome-wide mapping of DNA-binding proteins and histone modifications at base-pair resolution. To prepare samples for ChIP-Seq, formaldehyde-fixed or natural chromatin is fragmented by micrococcal nuclease (MNase) or sonication, which is further immunoprecipitated with target-specific antibody conjugated to magnetic beads. Isolated DNA from the precipitated protein-DNA complexes is used to generate libraries
 
 
-
-
-
 Library preparation 
 ========================
 
