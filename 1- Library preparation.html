@@ -201,88 +201,77 @@ GC-neutral fragments are amplified more efficiently than GC-rich or AT-rich frag
 <a class="reference internal image-reference" href="_images/protocol_RNA-seq_library_bias_vanDjik_etal_2014.png"><img alt="*source: https://doi.org/10.1016/j.yexcr.2014.01.008*" class="align-center" src="_images/protocol_RNA-seq_library_bias_vanDjik_etal_2014.png" style="width: 400px;" /></a>
 <section id="sample-preservation-and-isolation">
 <h3><strong>Sample Preservation and Isolation</strong><a class="headerlink" href="#sample-preservation-and-isolation" title="Link to this heading"></a></h3>
-<ol class="arabic">
-<li><p>Degradation of RNA:</p>
-<blockquote>
-<div><div class="admonition tip">
+<ol class="arabic simple">
+<li><p>Degradation of RNA:</p></li>
+</ol>
+<div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Minimizing the sample processing and freezing and thawing cycles, ensures that RNA is preserved as best as possible.</p>
 </div>
-</div></blockquote>
-</li>
-<li><p>RNA extraction:</p>
-<blockquote>
-<div><div class="admonition tip">
+<ol class="arabic simple" start="2">
+<li><p>RNA extraction:</p></li>
+</ol>
+<div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>If possible use high concentrations of RNA samples or avoid TRIzol extraction altogether.</p>
 </div>
-</div></blockquote>
-</li>
-</ol>
 </section>
 <section id="library-construction">
 <h3><strong>Library Construction</strong><a class="headerlink" href="#library-construction" title="Link to this heading"></a></h3>
-<ol class="arabic">
-<li><p><strong>Low-quality and/or low-quantity RNA samples</strong>:</p>
-<blockquote>
-<div><div class="admonition tip">
+<ol class="arabic simple">
+<li><p><strong>Low-quality and/or low-quantity RNA samples</strong>:</p></li>
+</ol>
+<div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>RNase H has been the best method for detecting low-qualityRNA and even could eﬀectively replace the standard RNA-seq method based on oligo (dT).
 For low-quantity RNA,the SMART and NuGEN approaches had lower duplication rates and signiﬁcantly decreased the necessary amount of starting material compared to other methods.</p>
 </div>
-</div></blockquote>
-</li>
-<li><p><strong>mRNA enrichment bias</strong>: In eukaryotes enrich for polyadenylated RNA transcripts with oligo (dT) primers have shown that this method remove all non-poly (A) RNAs, such a reolication-dependant histones and lncRNAs (lacking of polyA),or incomplete mRNAs.</p>
-<blockquote>
-<div><div class="admonition tip">
+<ol class="arabic simple" start="2">
+<li><p><strong>mRNA enrichment bias</strong>: In eukaryotes enrich for polyadenylated RNA transcripts with oligo (dT) primers have shown that this method remove all non-poly (A) RNAs, such a reolication-dependant histones and lncRNAs (lacking of polyA),or incomplete mRNAs.</p></li>
+</ol>
+<div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Targeting rRNA as depletion method will not limit to only mRNA molecules, may capture more immature transcripts, leading to a complexity increase of sequencing data (also is more expensive).
 Subtractive hybridization using rRNA-specific probes as the method that introduced the least bias in relative transcript abundance,</p>
 </div>
-</div></blockquote>
-</li>
-<li><p><strong>RNA fragmentation bias</strong>: There are two major approaches of RNA fragmentation: chemical (using metal ions) and enzymatic (using RNase III). During this process could be introduced lenght biases or errors (propagated to later cycles).</p>
-<blockquote>
-<div><div class="admonition tip">
+<ol class="arabic simple" start="3">
+<li><p><strong>RNA fragmentation bias</strong>: There are two major approaches of RNA fragmentation: chemical (using metal ions) and enzymatic (using RNase III). During this process could be introduced lenght biases or errors (propagated to later cycles).</p></li>
+</ol>
+<div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Studies have shown that methods that involve non speciﬁc restriction endonucleases indicate less sequence bias and have been shown to perform similarly to the physical methods. Also enzymatic methoda are easy to automate</p>
 </div>
-</div></blockquote>
-</li>
-<li><p><strong>Primer bias</strong>: During reverse transcription into cDNA by random hexamers can lead to deviation of nucleotide content of RNA sequencing reads, resulting in low complexity of RNA sequencing data.</p>
-<blockquote>
-<div><div class="admonition tip">
+<ol class="arabic simple" start="4">
+<li><p><strong>Primer bias</strong>: During reverse transcription into cDNA by random hexamers can lead to deviation of nucleotide content of RNA sequencing reads, resulting in low complexity of RNA sequencing data.</p></li>
+</ol>
+<div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Could be avoid using the Illumina Genome Analyzer, which perform the reverse transcription directly on the flowcells, avoiding the PCR.
 Also has been proposed a bioinformatics tool in a reweighing scheme to adjust for the bias and make the distribution of the reads more uniform.</p>
 </div>
-</div></blockquote>
-</li>
-<li><p><strong>Adapter ligation bias</strong>: Adapter ligation introduces a significant but widely overlooked bias in the results of NGS small RNA sequencing.</p>
-<blockquote>
-<div><div class="admonition tip">
+<ol class="arabic simple" start="5">
+<li><p><strong>Adapter ligation bias</strong>: Adapter ligation introduces a significant but widely overlooked bias in the results of NGS small RNA sequencing.</p></li>
+</ol>
+<div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>As a solution, several groups propose to randomize the 3’ end of the 5’adapter and the 5’end of the 3’adapter.
 The strategy is based on the hypothesis that a population of degenerate adapters would average out the sequencing bias because the slightly different adapter molecules would form stable secondary structures with a more diverse population of RNAsequences           - Reverse transcription bias: reverse transcriptases tend to produce false second strand cDNA throughDNA-dependent DNA polymerase. ActinomycinD, a compound that specifically inhibits DNA-dependent DNAsynthesis, has been proposed as an agent to eliminate antisense artifacts</p>
 </div>
-</div></blockquote>
-</li>
-<li><p><strong>Reverse Transcription</strong>: A known feature of reverse transcriptases is that they tend to produce false second strand cDNA through DNA-dependent DNA polymerase. This may not be able to distinguish the sense and antisense transcript and create difficulties for the data analysis.</p>
-<blockquote>
-<div><div class="admonition tip">
+<ol class="arabic simple" start="6">
+<li><p><strong>Reverse Transcription</strong>: A known feature of reverse transcriptases is that they tend to produce false second strand cDNA through DNA-dependent DNA polymerase. This may not be able to distinguish the sense and antisense transcript and create difficulties for the data analysis.</p></li>
+</ol>
+<div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <ul class="simple">
 <li><p>The deoxyuridine triphosphate (dUTP) method, one of the leading cDNA-based strategies, can be specifically removed by enzymatic digestion</p></li>
 <li><p>Another method is to synthesize the first strand of cDNA using labeled random hexamer primer and SSS using DNA-RNA template-switching primer</p></li>
 </ul>
 </div>
-</div></blockquote>
-</li>
+<ol class="arabic" start="7">
 <li><p><strong>PCR amplification bias</strong>: main source of artifacts and base composition bias in the process of library construction:</p>
 <blockquote>
 <div><p>7.1. Extremely AT/GC-Rich: Fragments of GC-neutral can be ampliﬁed more than GC-rich or AT-rich fragments.</p>
-<blockquote>
-<div><div class="admonition tip">
+<div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <ul class="simple">
 <li><p>Through the use of custom adapters, the samples without ampliﬁcation and ligation can be hybridized directly with the oligonucleotides on the ﬂowcell surface, thus avoiding the biases and duplicates of PCR.</p></li>
@@ -293,14 +282,11 @@ The strategy is based on the hypothesis that a population of degenerate adapters
 a number of additives have been reported to play an important role in reducing the bias of PCR ampli-ﬁcation, including small amides such as formamide, small sulfoxides such as dimethyl sulfoxide (DMSO),
 or reducingcompounds such as β-mercaptoethanol or dithiothreitol(DTT).</p>
 </div>
-</div></blockquote>
 <p>7.2. PCR cyle: PCR can exponentially amplify DNA/cDNA templates, thus leading to a signiﬁcant increase of ampliﬁcation bias with the number of PCR cycles.</p>
-<blockquote>
-<div><div class="admonition tip">
+<div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>it is recommended that PCR be performedusing as few cycle numbers as possible to mitigation bias.</p>
 </div>
-</div></blockquote>
 </div></blockquote>
 </li>
 </ol>

@@ -104,15 +104,16 @@ For Illumina Paired end sequencing, two FASTQ files are generated, one for each 
 
 For each read, the information it's divided in four lines:
 
-	1. Sequence identifier: starts with '@' and contains information about the read. Such as the instrument, run ID, flow cell ID, lane, tile, x, y coordinates, and read number.
+  1. Sequence identifier: starts with '@' and contains information about the read. Such as the instrument, run ID, flow cell ID, lane, tile, x, y coordinates, and read number.
 
-    .. Note::
-	    The @ symbol can not be used for count the number of reads, because it could also appear as a quality score symbol.
-
+  .. Note::
+    The @ symbol can not be used for count the number of reads, because it could also appear as a quality score symbol.
 
   2. Sequence: the nucleotide sequence of the read.
-	3. Quality identifier: starts with '+' and contains the same information as the sequence identifier. Or it may be empty and in some cases is used for metadata.
-	4. Quality scores: the Phred quality score for each base in the read. The Phred quality score is a measure of the quality of the base call, 
+  
+  3. Quality identifier: starts with '+' and contains the same information as the sequence identifier. Or it may be empty and in some cases is used for metadata.
+  
+  4. Quality scores: the Phred quality score for each base in the read. The Phred quality score is a measure of the quality of the base call, 
   
     .. math::
         Q = -10 * log10(P)
@@ -124,7 +125,6 @@ For each read, the information it's divided in four lines:
     .. image:: images/phred_scores.png
       :width: 400
       :align: center
-
 
 
 

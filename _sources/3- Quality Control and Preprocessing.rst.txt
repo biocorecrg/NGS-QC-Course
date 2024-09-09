@@ -29,7 +29,7 @@ the extensions supported are:
 
 It is available for usage by CLI and GUI. It generates a html report for each file and its divided in the following Quality metrics modules:
     
-    1. **Basic Statistics**: Display the information related with the file, number and lenght of the sequences, and overall %GC. 
+    1. **Basic Statistics**: Display the information related with the file, number and lenght of the sequences, and overall %GC.
     
     2. **Per base sequence quality**: Shows how the quality score (y axis) varys throughout the sequence reads (x axis). 
     For each position a BoxWhisker is displayed, the red line represents the median and the blue the mean. 
@@ -70,9 +70,9 @@ It is available for usage by CLI and GUI. It generates a html report for each fi
             :align: center
             :alt: *Per Sequence GC Content FASTQC module*
 
-        .. danger::
-                If the GC content is not close to the normal distribution, or more than one peak is found, this could indicate a contamination or a problem in the library preparation. 
-                Also, depending on the organism the GC content could vary, so if possible it's good to know the GC content of the organism of interest previously and avoid compare it with the human modelled distribution.
+    .. danger::
+            If the GC content is not close to the normal distribution, or more than one peak is found, this could indicate a contamination or a problem in the library preparation. 
+            Also, depending on the organism the GC content could vary, so if possible it's good to know the GC content of the organism of interest previously and avoid compare it with the human modelled distribution.
 
     7. **Per Base N content**: If the sequencer is unable to determine the base in a position, it will be represented as an 'N'. This section shows the distribution of Ns in the reads.
 
@@ -125,8 +125,8 @@ Also, other sources of contaminats could be checked:
 
     - PhiX: is a control used by Illumina to check the quality of the sequencing run (if the library is under or overloaded).
     - rRNA: in RNA-seq  is a good control of rRNA depletion during library preparation.
-    - Lambda
-    - Vectors: to check that vectors used during library preprartion have not been amplified.  
+    - Lambda: cloning vector.
+    - Vectors: other vectors used during library preprartion.  
     - Adapters
 
 Example of a FASTQ-Screen report: 
@@ -155,10 +155,10 @@ the reads need to be pre-processed in order to get rid of them and improve quali
 
 Typical tools used for pre-processing are: 
 
-    - Trimmomatic <http://www.usadellab.org/cms/index.php?page=trimmomatic>
-    - Cutadapt, only remove the adapaters (it needs to be used in combination with sickle), requires the adapter sequence to be known <https://cutadapt.readthedocs.io/en/stable/>
-    - Sickle, remove low quality tail bases <https://github.com/najoshi/sickle>
-    - fastp <https://github.com/OpenGene/fastp>
+    - Trimmomatic `<http://www.usadellab.org/cms/index.php?page=trimmomatic>`_.
+    - Cutadapt, only remove the adapaters (it needs to be used in combination with sickle), requires the adapter sequence to be known `<https://cutadapt.readthedocs.io/en/stable/>`_.
+    - Sickle, remove low quality tail bases `<https://github.com/najoshi/sickle>`_.
+    - FASTP `<https://github.com/OpenGene/fastp>`_.
 
 
 Fastp performs in all one the following corrections:

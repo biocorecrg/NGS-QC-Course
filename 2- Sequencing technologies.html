@@ -161,26 +161,17 @@ For Illumina Paired end sequencing, two FASTQ files are generated, one for each 
 <a class="reference internal image-reference" href="_images/fastq_format.png"><img alt="_images/fastq_format.png" class="align-center" src="_images/fastq_format.png" style="width: 400px;" /></a>
 <p>For each read, the information it’s divided in four lines:</p>
 <blockquote>
-<div><blockquote>
-<div><blockquote>
 <div><ol class="arabic simple">
 <li><p>Sequence identifier: starts with ‘&#64;’ and contains information about the read. Such as the instrument, run ID, flow cell ID, lane, tile, x, y coordinates, and read number.</p></li>
 </ol>
-</div></blockquote>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The &#64; symbol can not be used for count the number of reads, because it could also appear as a quality score symbol.</p>
 </div>
-</div></blockquote>
 <ol class="arabic simple" start="2">
-<li><dl class="simple">
-<dt>Sequence: the nucleotide sequence of the read.</dt><dd><ol class="arabic simple" start="3">
+<li><p>Sequence: the nucleotide sequence of the read.</p></li>
 <li><p>Quality identifier: starts with ‘+’ and contains the same information as the sequence identifier. Or it may be empty and in some cases is used for metadata.</p></li>
 <li><p>Quality scores: the Phred quality score for each base in the read. The Phred quality score is a measure of the quality of the base call,</p></li>
-</ol>
-</dd>
-</dl>
-</li>
 </ol>
 <blockquote>
 <div><div class="math notranslate nohighlight">

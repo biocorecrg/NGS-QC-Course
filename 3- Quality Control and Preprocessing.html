@@ -144,13 +144,15 @@ A strong bias in the nucleotide composition could indicate a problem in the libr
 <li><p><strong>Per sequence GC content</strong>:  GC content distribution for all the reads in the file, and compared to a modelled normal distribution of human GC content (blue line).</p>
 <blockquote>
 <div><a class="reference internal image-reference" href="_images/Per_seq_GC_content.png"><img alt="*Per Sequence GC Content FASTQC module*" class="align-center" src="_images/Per_seq_GC_content.png" style="width: 400px;" /></a>
+</div></blockquote>
+</li>
+</ol>
 <div class="admonition danger">
 <p class="admonition-title">Danger</p>
 <p>If the GC content is not close to the normal distribution, or more than one peak is found, this could indicate a contamination or a problem in the library preparation.
 Also, depending on the organism the GC content could vary, so if possible it’s good to know the GC content of the organism of interest previously and avoid compare it with the human modelled distribution.</p>
 </div>
-</div></blockquote>
-</li>
+<ol class="arabic" start="7">
 <li><p><strong>Per Base N content</strong>: If the sequencer is unable to determine the base in a position, it will be represented as an ‘N’. This section shows the distribution of Ns in the reads.</p>
 <blockquote>
 <div><a class="reference internal image-reference" href="_images/Per_base_N_content.png"><img alt="*Per Base N Content FASTQC module*" class="align-center" src="_images/Per_base_N_content.png" style="width: 400px;" /></a>
@@ -195,8 +197,8 @@ In human sequencing data the standard reference genomes to check are:</p>
 <div><ul class="simple">
 <li><p>PhiX: is a control used by Illumina to check the quality of the sequencing run (if the library is under or overloaded).</p></li>
 <li><p>rRNA: in RNA-seq  is a good control of rRNA depletion during library preparation.</p></li>
-<li><p>Lambda</p></li>
-<li><p>Vectors: to check that vectors used during library preprartion have not been amplified.</p></li>
+<li><p>Lambda: cloning vector.</p></li>
+<li><p>Vectors: other vectors used during library preprartion.</p></li>
 <li><p>Adapters</p></li>
 </ul>
 </div></blockquote>
@@ -223,10 +225,10 @@ the reads need to be pre-processed in order to get rid of them and improve quali
 <p>Typical tools used for pre-processing are:</p>
 <blockquote>
 <div><ul class="simple">
-<li><p>Trimmomatic &lt;<a class="reference external" href="http://www.usadellab.org/cms/index.php?page=trimmomatic">http://www.usadellab.org/cms/index.php?page=trimmomatic</a>&gt;</p></li>
-<li><p>Cutadapt, only remove the adapaters (it needs to be used in combination with sickle), requires the adapter sequence to be known &lt;<a class="reference external" href="https://cutadapt.readthedocs.io/en/stable/">https://cutadapt.readthedocs.io/en/stable/</a>&gt;</p></li>
-<li><p>Sickle, remove low quality tail bases &lt;<a class="reference external" href="https://github.com/najoshi/sickle">https://github.com/najoshi/sickle</a>&gt;</p></li>
-<li><p>fastp &lt;<a class="reference external" href="https://github.com/OpenGene/fastp">https://github.com/OpenGene/fastp</a>&gt;</p></li>
+<li><p>Trimmomatic <a class="reference external" href="http://www.usadellab.org/cms/index.php?page=trimmomatic">http://www.usadellab.org/cms/index.php?page=trimmomatic</a>.</p></li>
+<li><p>Cutadapt, only remove the adapaters (it needs to be used in combination with sickle), requires the adapter sequence to be known <a class="reference external" href="https://cutadapt.readthedocs.io/en/stable/">https://cutadapt.readthedocs.io/en/stable/</a>.</p></li>
+<li><p>Sickle, remove low quality tail bases <a class="reference external" href="https://github.com/najoshi/sickle">https://github.com/najoshi/sickle</a>.</p></li>
+<li><p>FASTP <a class="reference external" href="https://github.com/OpenGene/fastp">https://github.com/OpenGene/fastp</a>.</p></li>
 </ul>
 </div></blockquote>
 <p>Fastp performs in all one the following corrections:</p>

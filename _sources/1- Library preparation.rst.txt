@@ -141,68 +141,68 @@ On this section are presented the main source of bias in RNA-seq, and the soluti
 
 1. Degradation of RNA:
 
-	.. tip:: 
-		Minimizing the sample processing and freezing and thawing cycles, ensures that RNA is preserved as best as possible. 
+.. tip:: 
+	Minimizing the sample processing and freezing and thawing cycles, ensures that RNA is preserved as best as possible. 
 
 2. RNA extraction:
 
-	.. tip::
-		If possible use high concentrations of RNA samples or avoid TRIzol extraction altogether. 
+.. tip::
+	If possible use high concentrations of RNA samples or avoid TRIzol extraction altogether. 
 
 **Library Construction**
 -------------------------
 
 1. **Low-quality and/or low-quantity RNA samples**: 
 
-	.. tip::
-		RNase H has been the best method for detecting low-qualityRNA and even could eﬀectively replace the standard RNA-seq method based on oligo (dT). 
-		For low-quantity RNA,the SMART and NuGEN approaches had lower duplication rates and signiﬁcantly decreased the necessary amount of starting material compared to other methods.
+.. tip::
+	RNase H has been the best method for detecting low-qualityRNA and even could eﬀectively replace the standard RNA-seq method based on oligo (dT). 
+	For low-quantity RNA,the SMART and NuGEN approaches had lower duplication rates and signiﬁcantly decreased the necessary amount of starting material compared to other methods.
 
 2. **mRNA enrichment bias**: In eukaryotes enrich for polyadenylated RNA transcripts with oligo (dT) primers have shown that this method remove all non-poly (A) RNAs, such a reolication-dependant histones and lncRNAs (lacking of polyA),or incomplete mRNAs. 
 
-	.. tip::
-		Targeting rRNA as depletion method will not limit to only mRNA molecules, may capture more immature transcripts, leading to a complexity increase of sequencing data (also is more expensive). 
-		Subtractive hybridization using rRNA-specific probes as the method that introduced the least bias in relative transcript abundance,
+.. tip::
+	Targeting rRNA as depletion method will not limit to only mRNA molecules, may capture more immature transcripts, leading to a complexity increase of sequencing data (also is more expensive). 
+	Subtractive hybridization using rRNA-specific probes as the method that introduced the least bias in relative transcript abundance,
 
 3. **RNA fragmentation bias**: There are two major approaches of RNA fragmentation: chemical (using metal ions) and enzymatic (using RNase III). During this process could be introduced lenght biases or errors (propagated to later cycles).
 
-	.. tip:: 
-		Studies have shown that methods that involve non speciﬁc restriction endonucleases indicate less sequence bias and have been shown to perform similarly to the physical methods. Also enzymatic methoda are easy to automate 
+.. tip:: 
+	Studies have shown that methods that involve non speciﬁc restriction endonucleases indicate less sequence bias and have been shown to perform similarly to the physical methods. Also enzymatic methoda are easy to automate 
 
 4. **Primer bias**: During reverse transcription into cDNA by random hexamers can lead to deviation of nucleotide content of RNA sequencing reads, resulting in low complexity of RNA sequencing data.
 
-	.. tip::
-		Could be avoid using the Illumina Genome Analyzer, which perform the reverse transcription directly on the flowcells, avoiding the PCR.
-		Also has been proposed a bioinformatics tool in a reweighing scheme to adjust for the bias and make the distribution of the reads more uniform.
+.. tip::
+	Could be avoid using the Illumina Genome Analyzer, which perform the reverse transcription directly on the flowcells, avoiding the PCR.
+	Also has been proposed a bioinformatics tool in a reweighing scheme to adjust for the bias and make the distribution of the reads more uniform.
 
 5. **Adapter ligation bias**: Adapter ligation introduces a significant but widely overlooked bias in the results of NGS small RNA sequencing.
    
-	.. tip:: 
-		As a solution, several groups propose to randomize the 3' end of the 5'adapter and the 5'end of the 3'adapter. 
-		The strategy is based on the hypothesis that a population of degenerate adapters would average out the sequencing bias because the slightly different adapter molecules would form stable secondary structures with a more diverse population of RNAsequences		- Reverse transcription bias: reverse transcriptases tend to produce false second strand cDNA throughDNA-dependent DNA polymerase. ActinomycinD, a compound that specifically inhibits DNA-dependent DNAsynthesis, has been proposed as an agent to eliminate antisense artifacts
+.. tip:: 
+	As a solution, several groups propose to randomize the 3' end of the 5'adapter and the 5'end of the 3'adapter. 
+	The strategy is based on the hypothesis that a population of degenerate adapters would average out the sequencing bias because the slightly different adapter molecules would form stable secondary structures with a more diverse population of RNAsequences		- Reverse transcription bias: reverse transcriptases tend to produce false second strand cDNA throughDNA-dependent DNA polymerase. ActinomycinD, a compound that specifically inhibits DNA-dependent DNAsynthesis, has been proposed as an agent to eliminate antisense artifacts
 
 6. **Reverse Transcription**: A known feature of reverse transcriptases is that they tend to produce false second strand cDNA through DNA-dependent DNA polymerase. This may not be able to distinguish the sense and antisense transcript and create difficulties for the data analysis.
 
-	.. tip::
-		- The deoxyuridine triphosphate (dUTP) method, one of the leading cDNA-based strategies, can be specifically removed by enzymatic digestion
-		- Another method is to synthesize the first strand of cDNA using labeled random hexamer primer and SSS using DNA-RNA template-switching primer
+.. tip::
+	- The deoxyuridine triphosphate (dUTP) method, one of the leading cDNA-based strategies, can be specifically removed by enzymatic digestion
+	- Another method is to synthesize the first strand of cDNA using labeled random hexamer primer and SSS using DNA-RNA template-switching primer
 
 7. **PCR amplification bias**: main source of artifacts and base composition bias in the process of library construction:
 
 	7.1. Extremely AT/GC-Rich: Fragments of GC-neutral can be ampliﬁed more than GC-rich or AT-rich fragments. 
 
-		.. tip::
-			- Through the use of custom adapters, the samples without ampliﬁcation and ligation can be hybridized directly with the oligonucleotides on the ﬂowcell surface, thus avoiding the biases and duplicates of PCR. 
-			- However, the ampliﬁcation-free method requires high sample input, which limits its widely used. The most eﬀective PCR enhancing additives currently used are betaine. 
-			It is an amino acid mimic that acts to balance the diﬀerential T m between AT and GC base pairs and has been eﬀectively used to improve the coverage of GC-rich templates
-			- Presence of tetramethylammonium chloride (TMAC) showed that can remarkably increase the ampliﬁcation of AT-rich regions in Kapa HiFi in the presence. Additionally, 
-			a number of additives have been reported to play an important role in reducing the bias of PCR ampli-ﬁcation, including small amides such as formamide, small sulfoxides such as dimethyl sulfoxide (DMSO), 
-			or reducingcompounds such as β-mercaptoethanol or dithiothreitol(DTT).
+	.. tip::
+		- Through the use of custom adapters, the samples without ampliﬁcation and ligation can be hybridized directly with the oligonucleotides on the ﬂowcell surface, thus avoiding the biases and duplicates of PCR. 
+		- However, the ampliﬁcation-free method requires high sample input, which limits its widely used. The most eﬀective PCR enhancing additives currently used are betaine. 
+		It is an amino acid mimic that acts to balance the diﬀerential T m between AT and GC base pairs and has been eﬀectively used to improve the coverage of GC-rich templates
+		- Presence of tetramethylammonium chloride (TMAC) showed that can remarkably increase the ampliﬁcation of AT-rich regions in Kapa HiFi in the presence. Additionally, 
+		a number of additives have been reported to play an important role in reducing the bias of PCR ampli-ﬁcation, including small amides such as formamide, small sulfoxides such as dimethyl sulfoxide (DMSO), 
+		or reducingcompounds such as β-mercaptoethanol or dithiothreitol(DTT).
 
 	7.2. PCR cyle: PCR can exponentially amplify DNA/cDNA templates, thus leading to a signiﬁcant increase of ampliﬁcation bias with the number of PCR cycles. 
 
-		.. tip:: 
-			it is recommended that PCR be performedusing as few cycle numbers as possible to mitigation bias.
+	.. tip:: 
+		it is recommended that PCR be performedusing as few cycle numbers as possible to mitigation bias.
 
 .. seealso::
 	For more information see the publication `Library preparation methods for next generation sequencing Tone down the bias <http://dx.doi.org/10.1016/j.yexcr.2014.01.008>`_ and `Bias in RNA-seq Library Preparation: Current Challenges and Solutions <https://doi.org/10.1155/2021/6647597>`_.
