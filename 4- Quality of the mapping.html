@@ -52,15 +52,12 @@
 <li class="toctree-l1"><a class="reference internal" href="2-%20Sequencing%20technologies.html">2 Main Sequencing Technologies</a></li>
 <li class="toctree-l1"><a class="reference internal" href="3-%20Quality%20Control%20and%20Preprocessing.html">3 Quality Control and Preprocessing</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">4 Quality of the Mapping</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#introduction-to-mapping-and-tools">Introduction to Mapping and tools</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#sam-format">SAM format</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sam-format">SAM format</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#bam-qc">BAM QC</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#bam-qc">BAM QC</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#samstat"><strong>SAMStat</strong></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#qualimap"><strong>Qualimap</strong></a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="#samstat"><strong>SAMStat</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#qualimap"><strong>Qualimap</strong></a></li>
 </ul>
 </li>
 </ul>
@@ -91,40 +88,50 @@
              
   <section id="quality-of-the-mapping">
 <span id="sequencing-technologies-page"></span><h1>4 Quality of the Mapping<a class="headerlink" href="#quality-of-the-mapping" title="Link to this heading"></a></h1>
-<section id="introduction-to-mapping-and-tools">
-<h2>Introduction to Mapping and tools<a class="headerlink" href="#introduction-to-mapping-and-tools" title="Link to this heading"></a></h2>
 <p>Once our reads are clean and with good Quality, most of the analysis requires the aligment of this reads respect a reference genome.
 Depending on the origin of our sequencing data (WGS, WES, RNA-seq, Chip-seq, …) and the downstream analysis, several alingers are available to adjust to the necessities of our analysis.</p>
+<p>Previous aligment of the reads, For DNA-seq is required a reference genome in fasta format is needed, Typical sources to look up are UCSC, Ensembl or Gencode.
+And for RNA-Seq aligment, a reference transcriptome is needed, typically a fasta file with the transcript sequences of the organism of interest.</p>
+<p>If references are not available, a de novo assembly of the reads can be performed to generate a reference genome or transcriptome.</p>
 <p><strong>Basic aligment</strong>: Based on the Smith-Waterman algorithm, needs the creation of an index of the reference genome, used as a dictionary to query the reads and accelerate the search reducing the memory footprint.
-Both can be used for WGS or WES data:</p>
+The following tools can be used either for WGS or WES, but the have some differences:</p>
 <blockquote>
 <div><ul class="simple">
-<li><p>BWA-MEM: by default perform local aligment, high accuracy and efficiency in align reads to the entire genome. Because its very efficent for finding aligment with gaps, very important for variant detection &lt;<a class="reference external" href="https://bio-bwa.sourceforge.net/bwa.shtml">https://bio-bwa.sourceforge.net/bwa.shtml</a>&gt;.</p></li>
-<li><p>bowtie2: by default perform global aligment, is faster than BWA but less sensitive. recommended for large-scale sequencing and frequently used for ChiP-seq due to its speed to align shorter reads and identified enriched regions (peak detection) &lt;<a class="reference external" href="https://bowtie-bio.sourceforge.net/bowtie2/manual.shtml">https://bowtie-bio.sourceforge.net/bowtie2/manual.shtml</a>&gt;.</p></li>
+<li><p>BWA-MEM: by default perform local aligment, high accuracy and efficiency in align reads to the entire genome. Because its very efficent for finding aligment with gaps is commonly used for variant detection <a class="reference external" href="https://bio-bwa.sourceforge.net/bwa.shtml">https://bio-bwa.sourceforge.net/bwa.shtml</a>.</p></li>
+<li><p>Bowtie2: by default perform global aligment, is faster than BWA but less sensitive. Recommended for large-scale sequencing samples, and for ChiP-seq due to its speed to align shorter reads and identified enriched regions (peak detection) <a class="reference external" href="https://bowtie-bio.sourceforge.net/bowtie2/manual.shtml">https://bowtie-bio.sourceforge.net/bowtie2/manual.shtml</a>.</p></li>
 </ul>
 </div></blockquote>
 <p><strong>RNA-seq splice-aware aligner</strong>: Specialized in the mapping of RNA-seq reads, that can be spliced and map to different exons of the same gene:</p>
 <blockquote>
 <div><ul class="simple">
-<li><p>STAR: Most popular aligner for RNA-seq data, very effcient and accurate identifying splice junctions &lt;<a class="reference external" href="https://github.com/alexdobin/STAR">https://github.com/alexdobin/STAR</a>&gt;.</p></li>
-<li><p>TopHat2: first aligners designed for RNA-seq data, but now is deprecated and replaced by STAR &lt;<a class="reference external" href="https://ccb.jhu.edu/software/tophat/index.shtml">https://ccb.jhu.edu/software/tophat/index.shtml</a>&gt;.</p></li>
-<li><p>HISAT2: built on the Bowtiw2 aligment algorithm, but optimized for RNA-seq data &lt;<a class="reference external" href="https://daehwankimlab.github.io/hisat2/">https://daehwankimlab.github.io/hisat2/</a>&gt;.</p></li>
+<li><p>STAR: Most popular aligner for RNA-seq data, very effcient and accurate identifying splice junctions <a class="reference external" href="https://github.com/alexdobin/STAR">https://github.com/alexdobin/STAR</a>.</p></li>
+<li><p>TopHat2: first aligners designed for RNA-seq data, but now is deprecated and replaced by STAR <a class="reference external" href="https://ccb.jhu.edu/software/tophat/index.shtml">https://ccb.jhu.edu/software/tophat/index.shtml</a>.</p></li>
+<li><p>HISAT2: built on the Bowtie2 aligment algorithm, but optimized for RNA-seq data <a class="reference external" href="https://daehwankimlab.github.io/hisat2/">https://daehwankimlab.github.io/hisat2/</a>.</p></li>
 </ul>
 </div></blockquote>
 <p><strong>Pseudo-Aligner - Quasi-mapping</strong>: very fast, map to transciptome and does quantitation. Can’t find novel transcripts. When the goal is quantify gene expression levels, this is the best option:</p>
 <blockquote>
 <div><ul class="simple">
-<li><p>Kallisto: use pseudo-aligment approach, efficiently determines the compatibility of the transcript without full sequence aligment, very fast and memory-efficient, better option for large-scale projects &lt;<a class="reference external" href="https://github.com/pachterlab/kallisto">https://github.com/pachterlab/kallisto</a>&gt;.</p></li>
-<li><p>Salmon: use quasi-mapping approach, similar to pseudo-aligment but includes information about the location of the read within the transcript, and perform bias correction steps, slower than kallisto but more accurate quantifications. better option for complex transcriptomes  &lt;<a class="reference external" href="https://combine-lab.github.io/salmon/getting_started/">https://combine-lab.github.io/salmon/getting_started/</a>&gt;.</p></li>
+<li><p>Kallisto: use pseudo-aligment approach, efficiently determines the compatibility of the transcript without full sequence aligment, very fast and memory-efficient, better option for large-scale projects <a class="reference external" href="https://github.com/pachterlab/kallisto">https://github.com/pachterlab/kallisto</a>.</p></li>
+<li><p>Salmon: use quasi-mapping approach, similar to pseudo-aligment but includes information about the location of the read within the transcript, and perform bias correction steps. Slower than kallisto but more accurate quantifications. Better option for complex transcriptomes  <a class="reference external" href="https://combine-lab.github.io/salmon/getting_started/">https://combine-lab.github.io/salmon/getting_started/</a>.</p></li>
 </ul>
 </div></blockquote>
-<p>Previous aligment of the reads, a reference genome in fasta format is needed, Typical sources to look up are UCSC, Ensembl or Gencode. An indexing of the reference genome is perfomed to create a dictionary database of the redundant sequences of the genome and facilitate and accelerate the query of the reads respect this regions, thus, minimizing the the memory footprint.</p>
 <section id="sam-format">
-<h3>SAM format<a class="headerlink" href="#sam-format" title="Link to this heading"></a></h3>
-</section>
-</section>
+<h2>SAM format<a class="headerlink" href="#sam-format" title="Link to this heading"></a></h2>
+<p>The output of the aligment is a SAM file.
+Here is presented an overview of the structure of the SAM (Sequence Aligment/Map) format, which is a tab-delimited text file, divided in two sections: the header (optional) and the aligment records.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Header lines start with &#64;</p></li>
+<li><p>Aligment records start with a read name and mandatory contain 11 fields.</p></li>
+</ul>
+</div></blockquote>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>Check the SAM <a href="#id4"><span class="problematic" id="id5">format_</span></a> specification for a detailed explanation about the structure of the SAM and BAM file.</p>
+</div>
 <section id="bam-qc">
-<h2>BAM QC<a class="headerlink" href="#bam-qc" title="Link to this heading"></a></h2>
+<h3>BAM QC<a class="headerlink" href="#bam-qc" title="Link to this heading"></a></h3>
 <p>Even if the Quality control of the reas was correct, there are some problems  with the reads that are visualized after mapping (Low coverage, homopolymers biases, experimental artifacts, etc)
 Most of the tools to asses Mapping Quality relies on the values of MAPQ, which is a Phred-scaled probability that the alignment is wrong.</p>
 <div class="math notranslate nohighlight">
@@ -139,8 +146,10 @@ Most of the tools to asses Mapping Quality relies on the values of MAPQ, which i
 <p class="admonition-title">Note</p>
 <p>The value og the MAPQ is Algorithm-specific, so the values of MAPQ are not comparable between different aligners.</p>
 </div>
+</section>
+</section>
 <section id="samstat">
-<h3><strong>SAMStat</strong><a class="headerlink" href="#samstat" title="Link to this heading"></a></h3>
+<h2><strong>SAMStat</strong><a class="headerlink" href="#samstat" title="Link to this heading"></a></h2>
 <p>Is a CLI tool that offers Statistics of SAM/BAM files of unmapped, poorly and accuretly mapped raads.</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
@@ -149,7 +158,7 @@ Most of the tools to asses Mapping Quality relies on the values of MAPQ, which i
 <p>BAM format. Note, that the BAM file has to be sorted by chromosomal coordinates. Sorting can be performed with samtools sort.</p>
 </section>
 <section id="qualimap">
-<h3><strong>Qualimap</strong><a class="headerlink" href="#qualimap" title="Link to this heading"></a></h3>
+<h2><strong>Qualimap</strong><a class="headerlink" href="#qualimap" title="Link to this heading"></a></h2>
 <p>Qualimap is a platform-independent application written in Java and R that provides both a GUI and a command-line interface to facilitate the quality control of alignment sequencing data.
 It can be used to assess the quality of the alignment of reads to a reference genome, the coverage of the genome, the distribution of reads across the genome and helps to detect biases.
 Qualimap generates a series of plots and tables that can be used to evaluate the quality of the alignment and identify potential problems with the data.
@@ -179,8 +188,10 @@ It can be used to assess the quality of alignments generated by a variety of ali
 <p>RNAseqMetrics is a tool from Picard Tools that provides a comprehensive set of metrics for RNA-seq data.
 It can be used to assess the quality of the alignment of reads to a reference genome, the coverage of the genome,
 the distribution of reads across the genome and helps to detect biases.</p>
-<p><strong>RSeQC</strong>: Quality control of post aligment RNA-seq data, “inspect sequence quality, nuvleotide composition, PCR duplication, GC bias.</p>
-</section>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>Check the Picard <a href="#id6"><span class="problematic" id="id7">Tools_</span></a> website for more information about usage.</p>
+</div>
 </section>
 </section>
 

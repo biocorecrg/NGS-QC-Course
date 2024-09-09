@@ -4,37 +4,49 @@
 4 Quality of the Mapping
 ***********************************
 
-Introduction to Mapping and tools
-==================================
-
 Once our reads are clean and with good Quality, most of the analysis requires the aligment of this reads respect a reference genome.
 Depending on the origin of our sequencing data (WGS, WES, RNA-seq, Chip-seq, ...) and the downstream analysis, several alingers are available to adjust to the necessities of our analysis. 
 
-**Basic aligment**: Based on the Smith-Waterman algorithm, needs the creation of an index of the reference genome, used as a dictionary to query the reads and accelerate the search reducing the memory footprint.
-Both can be used for WGS or WES data:
+Previous aligment of the reads, For DNA-seq is required a reference genome in fasta format is needed, Typical sources to look up are UCSC, Ensembl or Gencode.
+And for RNA-Seq aligment, a reference transcriptome is needed, typically a fasta file with the transcript sequences of the organism of interest.
 
-    - BWA-MEM: by default perform local aligment, high accuracy and efficiency in align reads to the entire genome. Because its very efficent for finding aligment with gaps, very important for variant detection <https://bio-bwa.sourceforge.net/bwa.shtml>.
+If references are not available, a de novo assembly of the reads can be performed to generate a reference genome or transcriptome. 
 
-    - bowtie2: by default perform global aligment, is faster than BWA but less sensitive. recommended for large-scale sequencing and frequently used for ChiP-seq due to its speed to align shorter reads and identified enriched regions (peak detection) <https://bowtie-bio.sourceforge.net/bowtie2/manual.shtml>.
+**Basic aligment**: Based on the Smith-Waterman algorithm, needs the creation of an index of the reference genome, used as a dictionary to query the reads and accelerate the search reducing the memory footprint. 
+The following tools can be used either for WGS or WES, but the have some differences:
+
+    - BWA-MEM: by default perform local aligment, high accuracy and efficiency in align reads to the entire genome. Because its very efficent for finding aligment with gaps is commonly used for variant detection `<https://bio-bwa.sourceforge.net/bwa.shtml>`_.
+
+    - Bowtie2: by default perform global aligment, is faster than BWA but less sensitive. Recommended for large-scale sequencing samples, and for ChiP-seq due to its speed to align shorter reads and identified enriched regions (peak detection) `<https://bowtie-bio.sourceforge.net/bowtie2/manual.shtml>`_.
 
 **RNA-seq splice-aware aligner**: Specialized in the mapping of RNA-seq reads, that can be spliced and map to different exons of the same gene:
 
-    - STAR: Most popular aligner for RNA-seq data, very effcient and accurate identifying splice junctions <https://github.com/alexdobin/STAR>.
+    - STAR: Most popular aligner for RNA-seq data, very effcient and accurate identifying splice junctions `<https://github.com/alexdobin/STAR>`_.
 
-    - TopHat2: first aligners designed for RNA-seq data, but now is deprecated and replaced by STAR <https://ccb.jhu.edu/software/tophat/index.shtml>.
+    - TopHat2: first aligners designed for RNA-seq data, but now is deprecated and replaced by STAR `<https://ccb.jhu.edu/software/tophat/index.shtml>`_.
 
-    - HISAT2: built on the Bowtiw2 aligment algorithm, but optimized for RNA-seq data <https://daehwankimlab.github.io/hisat2/>.
+    - HISAT2: built on the Bowtie2 aligment algorithm, but optimized for RNA-seq data `<https://daehwankimlab.github.io/hisat2/>`_.
 
 **Pseudo-Aligner - Quasi-mapping**: very fast, map to transciptome and does quantitation. Can't find novel transcripts. When the goal is quantify gene expression levels, this is the best option:
 
-    - Kallisto: use pseudo-aligment approach, efficiently determines the compatibility of the transcript without full sequence aligment, very fast and memory-efficient, better option for large-scale projects <https://github.com/pachterlab/kallisto>.
-    
-    - Salmon: use quasi-mapping approach, similar to pseudo-aligment but includes information about the location of the read within the transcript, and perform bias correction steps, slower than kallisto but more accurate quantifications. better option for complex transcriptomes  <https://combine-lab.github.io/salmon/getting_started/>.
+    - Kallisto: use pseudo-aligment approach, efficiently determines the compatibility of the transcript without full sequence aligment, very fast and memory-efficient, better option for large-scale projects `<https://github.com/pachterlab/kallisto>`_.
 
-Previous aligment of the reads, a reference genome in fasta format is needed, Typical sources to look up are UCSC, Ensembl or Gencode. An indexing of the reference genome is perfomed to create a dictionary database of the redundant sequences of the genome and facilitate and accelerate the query of the reads respect this regions, thus, minimizing the the memory footprint. 
+    - Salmon: use quasi-mapping approach, similar to pseudo-aligment but includes information about the location of the read within the transcript, and perform bias correction steps. Slower than kallisto but more accurate quantifications. Better option for complex transcriptomes  `<https://combine-lab.github.io/salmon/getting_started/>`_.
+
 
 SAM format
 ----------
+
+The output of the aligment is a SAM file.
+Here is presented an overview of the structure of the SAM (Sequence Aligment/Map) format, which is a tab-delimited text file, divided in two sections: the header (optional) and the aligment records.
+
+    - Header lines start with @
+    - Aligment records start with a read name and mandatory contain 11 fields.
+
+
+.. seealso::
+    .. _SAM format: https://samtools.github.io/hts-specs/SAMv1.pdf
+    Check the SAM format_ specification for a detailed explanation about the structure of the SAM and BAM file.
 
 
 
@@ -111,4 +123,7 @@ RNAseqMetrics is a tool from Picard Tools that provides a comprehensive set of m
 It can be used to assess the quality of the alignment of reads to a reference genome, the coverage of the genome, 
 the distribution of reads across the genome and helps to detect biases.
 
-**RSeQC**: Quality control of post aligment RNA-seq data, "inspect sequence quality, nuvleotide composition, PCR duplication, GC bias.
+.. seealso::
+    .. _Picard Tools: https://gatk.broadinstitute.org/hc/en-us/articles/360037057492-CollectRnaSeqMetrics-Picard
+    Check the Picard Tools_ website for more information about usage.
+

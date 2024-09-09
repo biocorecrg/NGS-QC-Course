@@ -163,8 +163,7 @@ Typical tools used for pre-processing are:
 
 Fastp performs in all one the following corrections:
 
-- Adapter removal: in paired-end data, fastp seeks the overlap of each pair and considers the bases that fall out of the
- overlapped regions as adapter contents. Not need to specify the adapter sequence.
+- Adapter removal: in paired-end data, fastp seeks the overlap of each pair and considers the bases that fall out of the overlapped regions as adapter contents. Not need to specify the adapter sequence.
 - Base correction:  for good quality overlapped sequences, quality differences are corrected if one of the bases has a higher score. 
   Tipically base quality decrease towards the 3' end of the read, poor quality tails are removed to leave only-high quality reads for aligment.
   sliding window method to drop the low-quality bases of each read’s head and tail. The window can slide from either 5′ to 3′ or from 3′ to 5′, and the average quality score within the window is evaluated. 
