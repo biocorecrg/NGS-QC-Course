@@ -6,6 +6,8 @@ Undertand and interpret the main quality control of the analisys of the raw data
 
 This course is address to researchers with not prior experience in bioinformatics, they will be able to interpret the main parameters of FASTQC quality control tool for short reads (Illumina) and known the main tools for remove low quality reads and adapater content. 
 
+Follow the course following the link https://biocorecrg.github.io/NGS-QC-Course/ 
+
 ### Outline
 
 
