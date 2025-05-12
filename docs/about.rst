@@ -53,26 +53,28 @@ Program
 Outline
 ============
 
-This NGS Quality Control (QC) course will train participants to run FASTQC on short reads obtained with Illumina and interpret the quality control parameters offered by this tool. 
+This NGS Quality Control (QC) course will train participants to understand and 
+interpret the basics of quality control in the main steps of the NGS pipeline, 
+such as library preparation, sequencing reads, preprocessing, and alignment. 
 
 .. _home-page-learning:
 
 Learning objectives
 ============
 
-* Know the main steps of a library preparation in DNA-seq and RNA-seq, the bias introduced in each of this and solutions to avoid them 
-* Learn how the main sequencing technologies works (Illumina for short reads and Nanopore for long reads). 
-* Execute/Run the main quality control tools for raw data (FASTQC/NanoPlot and FASQ-Screen) obtained for short and long reads.
-* Understand the FASTQ format and interpret the Quality Control report offered by theese tools.
-* Aggregate the QC reports of different tools and samples with MULTIQC.
-* Execute and learn about the preprocessing tools for adapter and low quality reads removal (TRIMMOMATIC, Cutadapter, Sickle, Fastp).
+* Understand the library preparation steps and sources of error. 
+* Main factors for choose an appropiate library preparation kit
+* Understand the sequencing technology of Illumina. 
+* Interpret the Quality Control Parameters offered by FASTQC. 
+* Description of the main tools for low quality reads and adapter removal.
+* Knowing of the different tools for alignment of short reads and the main parameters to check after alignment.
 
 .. _home-page-prereq:
 
 Prerequisite / technical requirements
 ============
 
-Being comfortable working with the CLI (command-line interface) in a Linux-based environment (Introductory courses to CLI may be recommended)git .
+Being comfortable working with the CLI (command-line interface) in a Linux-based environment.
 
 
 

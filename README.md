@@ -1,10 +1,9 @@
 # Quality Control concepts of Next Generation Sequencing with Illumina
 
-Undertand and interpret the main quality control of the analisys of the raw data with fastqc
-
+Understand and interpret the basics of quality control in the main steps of the NGS pipeline, such as library preparation, sequencing reads, preprocessing and alignment. 
 ## About the course
 
-This course is address to researchers with not prior experience in bioinformatics, they will be able to interpret the main parameters of FASTQC quality control tool for short reads (Illumina) and known the main tools for remove low quality reads and adapater content. 
+This course is addressed to researchers with no prior experience in bioinformatics, they will be able to know the prone error steps during the library prepration, the main parameters of FASTQC quality control tool for short reads (Illumina), know the main tools for removing low quality reads and adapter content, the different aligment tools available and the main quality control parameters to chceck after alignment.
 
 Start the course following the link https://biocorecrg.github.io/NGS-QC-Course/ 
 
@@ -14,11 +13,12 @@ Start the course following the link https://biocorecrg.github.io/NGS-QC-Course/
 
 ### Learning objectives
 
-* Execute/Run FASTQC on short reads obtained by illumina sequencing. 
-* Interpret the Quality Control Parameters offered by FASTQC
-* Understand the sequencing technology of Illumina. 
+* Understand the library preparation steps and sources of error. 
 * Main factors for choose an appropiate library preparation kit
+* Understand the sequencing technology of Illumina. 
+* Interpret the Quality Control Parameters offered by FASTQC. 
 * Description of the main tools for low quality reads and adapter removal.
+* Knowing of the different tools for alignment of short reads and the main parameters to check after alignment.
 
 
 ### Prerequisite / technical requirements
